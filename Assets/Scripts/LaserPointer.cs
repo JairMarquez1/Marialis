@@ -6,6 +6,7 @@ public class LaserPointer : MonoBehaviour
 {
     public Transform firePoint;
     public LineRenderer lineRenderer;
+    int pruebadeGitHub; //Eliminar linea.
     void Start()
     {
         lineRenderer.enabled = true;

@@ -9,6 +9,7 @@ public class BulletMovement : MonoBehaviour
     public float bulletLife;
     public GameObject player;
     private Transform playerTrans;
+    int pruebadeGitHub;
 
     // Start is called before the first frame update
     void Awake() 
