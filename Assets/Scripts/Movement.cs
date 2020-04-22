@@ -76,8 +76,8 @@ public class Movement : MonoBehaviour
                 speed /= 2f;
                 bulletSpawner.Translate(new Vector3(0f, -0.27f, 0f));
                 gameObject.GetComponent<Animator>().SetBool("sneaking", true);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.07f, -0.185f);
-                GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.53f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0.07f, -0.2f);
+                GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.48f);
                 sneaking = true;
             }
         }
