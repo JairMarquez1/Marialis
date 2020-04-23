@@ -8,7 +8,9 @@ public class Movement : MonoBehaviour
     public Transform bulletSpawner;
     public GameObject bulletPrefab;
     public bool hasGun = false;
+    public bool hasJetPack = false;
     public float jumpPower = 8f;
+    public float jetPackPower = 01.45f;
     private bool jump;
     private bool grounded;
     private bool sneaking;
@@ -20,6 +22,10 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.name == "gun")
         {
             hasGun = true;
+        }
+        else if(collision.gameObject.name == "JetPack")
+        {
+            hasJetPack = true;
         }
         else if (collision.transform.tag == "ground")
         {
@@ -81,11 +87,23 @@ public class Movement : MonoBehaviour
                 sneaking = true;
             }
         }
+        if(Input.GetKey(KeyCode.Space) && hasJetPack)
+        {   
+            rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().SetBool("flying", true);
+        }else{
+            gameObject.GetComponent<Animator>().SetBool("flying", false);
+        }
+
 
             PlayerShooting();
         if (hasGun)
         {
             gameObject.GetComponent<Animator>().SetBool("withgun", true);
+        }
+        if (hasJetPack)
+        {
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
         }
     }
 
