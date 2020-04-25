@@ -6344,7 +6344,7 @@ MonoBehaviour:
   follow: {fileID: 2025138402}
   minCamPos: {x: -100, y: 0}
   maxCamPos: {x: 100, y: 50}
-  cameraResize: 10
+  cameraResize: 5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -6615,6 +6615,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905865852515068098, guid: 7c6472f4ec2066c4088a58fbbd503512,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 905865852515068100, guid: 7c6472f4ec2066c4088a58fbbd503512,
         type: 3}
       propertyPath: jumpPower
@@ -6634,6 +6639,21 @@ PrefabInstance:
         type: 3}
       propertyPath: hasGun
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 905865852515068100, guid: 7c6472f4ec2066c4088a58fbbd503512,
+        type: 3}
+      propertyPath: maxVely
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 905865852515068100, guid: 7c6472f4ec2066c4088a58fbbd503512,
+        type: 3}
+      propertyPath: jumpduration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 905865852515068100, guid: 7c6472f4ec2066c4088a58fbbd503512,
+        type: 3}
+      propertyPath: jumpDuration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 905865852515068102, guid: 7c6472f4ec2066c4088a58fbbd503512,
         type: 3}
@@ -6912,7 +6932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 519420028}
-  speedRotation: 1
+  speedRotation: 0.2
   light1: {fileID: 197450675}
   light2: {fileID: 1714149921}
   dayTime: 0
@@ -7055,8 +7075,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432483278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.402, y: 3.52, z: 0}
-  m_LocalScale: {x: 34.289852, y: 12.779039, z: 1}
+  m_LocalPosition: {x: -0.48, y: 14.57, z: 0}
+  m_LocalScale: {x: 112.37197, y: 30.991726, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 25
@@ -7820,7 +7840,7 @@ PrefabInstance:
     - target: {fileID: 3221543978212757227, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
       propertyPath: m_Name
-      value: gun
+      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 3221543978212757230, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
