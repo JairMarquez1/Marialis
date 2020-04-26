@@ -51,19 +51,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        PlayerShooting();
-        if (hasGun)
-        {
-            gameObject.GetComponent<Animator>().SetBool("withgun", true);
-        }
-        if (hasJetPack)
-        {
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
-        }
-    }
-
-    void FixedUpdate()
-    {
         //---------------------Movimiento horizontal---------------------
         if (Input.GetKey("left"))
         {
@@ -139,6 +126,19 @@ public class Movement : MonoBehaviour
         }
 
 
+        PlayerShooting();
+        if (hasGun)
+        {
+            gameObject.GetComponent<Animator>().SetBool("withgun", true);
+        }
+        if (hasJetPack)
+        {
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
+        }
+    }
+
+    void FixedUpdate()
+    {
         velx = rigibody2d.velocity[0];
         vely = rigibody2d.velocity[1];
         //Trunca la velocidad del personaje para que nunca super ciertos valores.
