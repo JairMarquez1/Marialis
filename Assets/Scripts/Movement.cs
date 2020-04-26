@@ -156,6 +156,3 @@ public class Movement : MonoBehaviour
         }
     }
 }
-
-
-
