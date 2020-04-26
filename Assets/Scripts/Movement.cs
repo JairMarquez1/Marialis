@@ -91,16 +91,6 @@ public class Movement : MonoBehaviour
                 grounded = false;
             }
         }
-        if (jumping)
-        {
-            rigibody2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            jumpcount += 1;
-            //El estado jumping dura hasta que el contador llegue a jumpduration
-            if (jumpcount > jumpDuration)
-            {
-                jumping = false;
-            }
-        }
         //-----------------------------Agacharse----------------------------
         if (Input.GetKeyDown(KeyCode.DownArrow) && grounded)
         {
@@ -139,6 +129,18 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (jumping)
+        {
+            rigibody2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            jumpcount += 1;
+            //El estado jumping dura hasta que el contador llegue a jumpduration
+            if (jumpcount > jumpDuration)
+            {
+                jumping = false;
+            }
+        }
+
         velx = rigibody2d.velocity[0];
         vely = rigibody2d.velocity[1];
         //Trunca la velocidad del personaje para que nunca super ciertos valores.
