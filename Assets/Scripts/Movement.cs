@@ -7,29 +7,19 @@ public class Movement : MonoBehaviour
     
     public Transform bulletSpawner;
     public GameObject bulletPrefab;
-    //Estados
-    public bool hasGun = false;          
-    public bool hasJetPack = false;     
-    private bool jumping;               
-    private bool grounded;               
-    private bool sneaking;   
-    //Atributos
-    public float jumpPower = 8f;         
-    public float jetPackPower = 01.45f;  
+    public bool hasGun = false;
+    public bool hasJetPack = false;
+    public float jumpPower = 8f;
+    public float jetPackPower = 01.45f;
+    private bool jump;
+    private bool grounded;
+    private bool sneaking;
     public float speed = 500f;
-    public float maxVelx = 10f;
-    public float maxVely = 10f;
-    public int jumpDuration;
-    private int jumpcount;               //Valor auxiliar (Sirve como contador)
-    private float velx;
-    private float vely;
-    
-    
 
     private Rigidbody2D rigibody2d;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Gun")
+        if (collision.gameObject.name == "gun")
         {
             hasGun = true;
         }
@@ -41,6 +31,8 @@ public class Movement : MonoBehaviour
         {
             grounded = true;
         }
+
+        // Start is called before the first frame update
     }
  
 
@@ -49,42 +41,25 @@ public class Movement : MonoBehaviour
         rigibody2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        PlayerShooting();
-        if (hasGun)
-        {
-            gameObject.GetComponent<Animator>().SetBool("withgun", true);
-        }
-        if (hasJetPack)
-        {
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
-        }
-    }
-
-    void FixedUpdate()
-    {
-        //---------------------Movimiento horizontal---------------------
         if (Input.GetKey("left"))
         {
-            rigibody2d.AddForce(new Vector2(-speed * Time.deltaTime, 0));
-            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            gameObject.GetComponent<Animator>().SetBool("walking", true);
+        rigibody2d.AddForce(new Vector2(-speed * Time.deltaTime, 0));
+        gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        gameObject.GetComponent<Animator>().SetBool("walking",true);
+         }
+        if (Input.GetKey("right")) {
+        rigibody2d.AddForce(new Vector2(speed * Time.deltaTime, 0));
+        gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+        gameObject.GetComponent<Animator>().SetBool("walking",true);
         }
-        if (Input.GetKey("right"))
-        {
-            rigibody2d.AddForce(new Vector2(speed * Time.deltaTime, 0));
-            gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
-            gameObject.GetComponent<Animator>().SetBool("walking", true);
+        else if (!Input.GetKey("left")){
+        gameObject.GetComponent<Animator>().SetBool("walking",false);
         }
-        else if (!Input.GetKey("left"))
-        {
-            gameObject.GetComponent<Animator>().SetBool("walking", false);
-        }
-        //-------------------"Desagachamiento" y Salto----------------------
         if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
         {
-            //-------Desagacharse-------
             if (sneaking)
             {
                 speed *= 2f;
@@ -94,27 +69,12 @@ public class Movement : MonoBehaviour
                 GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.86f);
                 sneaking = false;
             }
-            //-----------Salto----------
             else
             {
-                //Jugador entra en estado jumping
-                jumping = true;
-                //Se inicia el contador
-                jumpcount = 0;
+                jump = true;
                 grounded = false;
             }
         }
-        if (jumping)
-        {
-            rigibody2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            jumpcount += 1;
-            //El estado jumping dura hasta que el contador llegue a jumpduration
-            if (jumpcount > jumpDuration)
-            {
-                jumping = false;
-            }
-        }
-        //-----------------------------Agacharse----------------------------
         if (Input.GetKeyDown(KeyCode.DownArrow) && grounded)
         {
             if (!sneaking)
@@ -127,23 +87,33 @@ public class Movement : MonoBehaviour
                 sneaking = true;
             }
         }
-        //--------------------------Volar(JetPack)----------------------------
-        if (Input.GetKey(KeyCode.Space) && hasJetPack)
-        {
+        if(Input.GetKey(KeyCode.Space) && hasJetPack)
+        {   
             rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().SetBool("flying", true);
-        }
-        else
-        {
+        }else{
             gameObject.GetComponent<Animator>().SetBool("flying", false);
         }
 
 
-        velx = rigibody2d.velocity[0];
-        vely = rigibody2d.velocity[1];
-        //Trunca la velocidad del personaje para que nunca super ciertos valores.
-        rigibody2d.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), Mathf.Clamp(vely, -9.8f, maxVely));
-        //Debug.Log(rigibody2d.velocity);
+            PlayerShooting();
+        if (hasGun)
+        {
+            gameObject.GetComponent<Animator>().SetBool("withgun", true);
+        }
+        if (hasJetPack)
+        {
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (jump)
+        {
+            rigibody2d.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            jump = false;
+        }
     }
 
 
