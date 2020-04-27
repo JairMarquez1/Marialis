@@ -105,7 +105,7 @@ public class Movement : MonoBehaviour
             }
         }
         //--------------------------Volar(JetPack)----------------------------
-        if (Input.GetKey(KeyCode.Space) && hasJetPack)
+        if (Input.GetKey(KeyCode.Space) && hasJetPack && !sneaking)
         {
             rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().SetBool("flying", true);
