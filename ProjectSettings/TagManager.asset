@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - ground
   - NotShootable
+  - Gear
   layers:
   - Default
   - TransparentFX

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_2 : MonoBehaviour
-{ 
+{
+    public GameObject gearPrefab;
     public GameObject player;
-    public Rigidbody2D playerRigidbody;
     public float health = 2f;
     public float speed = -0.5f;
     public bool MoveRight = true;
@@ -17,7 +17,10 @@ public class Enemy_2 : MonoBehaviour
         {
             health -= 1;
             if (health <= 0)
+            {
+                Instantiate(gearPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 Destroy(gameObject);
+            }
         }
     }
     void Start()

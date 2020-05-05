@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_1 : MonoBehaviour
 {
+    public GameObject gearPrefab;
     public int health = 2;
     public float speed = -1;
     public bool MoveRight = true;
@@ -15,7 +16,10 @@ public class Enemy_1 : MonoBehaviour
         {
             health -= 1;
             if (health <= 0)
+            {
+                Instantiate(gearPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 Destroy(gameObject);
+            }
         }
     }
 

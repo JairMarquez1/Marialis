@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Movement : MonoBehaviour
 {
     
@@ -23,13 +22,20 @@ public class Movement : MonoBehaviour
     private int jumpcount;               //Valor auxiliar (Sirve como contador)
     private float velx;
     private float vely;
-    
-    
+    //Scores
+    public int scoreGear;
+
+
 
     private Rigidbody2D rigibody2d;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Gun")
+        if (collision.gameObject.tag == "Gear")
+        {
+            scoreGear ++;
+
+        }
+        else if (collision.gameObject.name == "Gun")
         {
             hasGun = true;
         }
@@ -105,7 +111,7 @@ public class Movement : MonoBehaviour
             }
         }
         //--------------------------Volar(JetPack)----------------------------
-        if (Input.GetKey(KeyCode.Space) && hasJetPack)
+        if (Input.GetKey(KeyCode.Space) && hasJetPack && !sneaking)
         {
             rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().SetBool("flying", true);
