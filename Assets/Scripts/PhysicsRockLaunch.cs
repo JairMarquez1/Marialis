@@ -11,7 +11,7 @@ public class PhysicsRockLaunch : MonoBehaviour
 
     void Start()
     {
-       rock.AddForce(transform.up * 8f,ForceMode2D.Impulse);
+       rock.AddForce(-transform.up * 8f,ForceMode2D.Impulse);
     }
 
     void Update()

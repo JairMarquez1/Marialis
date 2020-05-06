@@ -4,37 +4,35 @@ using UnityEngine;
 
 public class Enemy_3 : MonoBehaviour
 {
-    public GameObject rock;
-    public Transform follow;
+    public float visionRadius;
+    public float speed;
+
+    GameObject player;
+    Vector3 initialPosition;
     
     void Start()
     {
-        InvokeRepeating("LaunchProjectile", 2, 1);
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        initialPosition = transform.position;
     }
 
     void FixedUpdate()
     {
-        float angle = Angle(follow.transform.position, transform.position) - 90f;
-        angle = Mathf.Clamp(angle, -90f, 110f);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
+
+        Vector3 target = initialPosition;
+
+        float dist = Vector3.Distance(player.transform.position, transform.position);
+        if (dist < visionRadius) target = player.transform.position;
+
+        transform.position = Vector3.MoveTowards(transform.position, target, speed);
+        Debug.DrawLine(transform.position, target, Color.green);
     }
 
-
-
-    void LaunchProjectile()
+    private void OnDrawGizmos()
     {
-        Instantiate(rock, transform.position, transform.rotation);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, visionRadius);
     }
 
-
-    /*Calcula el ángulo entre 2 puntos*/
-    static float Angle(Vector3 P1, Vector3 P2) 
-    {
-        Vector3 vector = P1 - P2; 
-        vector.Normalize(); //Convierte los valores en base a 1.
-
-        float angle = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-
-        return angle;
-    }
 }
