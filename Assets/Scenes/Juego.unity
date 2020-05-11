@@ -6758,6 +6758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 519420028}
+  cameraSize: {fileID: 519420031}
   speedRotation: 0.1
   light1: {fileID: 197450675}
   light2: {fileID: 1714149921}
