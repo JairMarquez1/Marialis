@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public GameObject follow;
     public Vector2 minCamPos, maxCamPos;
-    public float cameraResize = 5f;
+    public float cameraResize = 2;
     void Start()
     {
         
@@ -32,5 +32,6 @@ public class CameraFollow : MonoBehaviour
         (Un cameraResize más alto significa un alejamiento de la camara más suave)
         */
         gameObject.GetComponent<Camera>().orthographicSize = 5f + posY / cameraResize;
+            
     }
 }
