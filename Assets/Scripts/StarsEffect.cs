@@ -5,12 +5,10 @@ using UnityEngine;
 public class StarsEffect : MonoBehaviour
 {
     public GameObject follow;
+    public Camera cameraSize;
     public float speedRotation = 0.1f;
-    public Light light1;
-    public Light light2;
+    public Light generalLight;
     public float dayTime;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -19,17 +17,21 @@ public class StarsEffect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         dayTime = Mathf.Clamp(Mathf.Abs(transform.rotation.z) * 10 - 1, 1,8);
-        light1.intensity = dayTime;
-        light2.intensity = dayTime;
+        generalLight.intensity = dayTime;
 
-        /*Mueve la posición de la cámara*/
+        /*Obtiene la posición de la cámara*/
         float posX = follow.transform.position.x;
         float posY = follow.transform.position.y;
 
-        transform.position = new Vector3(posX, posY -4f, transform.position.z);
-        transform.Rotate(new Vector3(0, 0, 0.1f) * speedRotation);   
+        /*Obtiene el tamaño de la cámara*/
+        //Se divide entre el múltiplo con el que empieza la cámara (variable "Size" del component Camera)
+        float size = cameraSize.orthographicSize / 5f;
+
+        transform.position = new Vector3(posX, posY -1f, transform.position.z); 
+        transform.Rotate(new Vector3(0, 0, 0.1f) * speedRotation);
+        transform.localScale = new Vector3(1f, 1f, 1f) * size; //Se adapta al tamaño de la cámara.
     }
 }

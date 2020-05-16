@@ -61,13 +61,15 @@ public class Movement : MonoBehaviour
         if (Input.GetKey("left"))
         {
             rigibody2d.AddForce(new Vector2(-speed * Time.deltaTime, 0));
-            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localScale = new Vector3(1f, 1,1);
             gameObject.GetComponent<Animator>().SetBool("walking", true);
         }
         if (Input.GetKey("right"))
         {
             rigibody2d.AddForce(new Vector2(speed * Time.deltaTime, 0));
-            gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            //gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(-1f, 1,1);
             gameObject.GetComponent<Animator>().SetBool("walking", true);
         }
         else if (!Input.GetKey("left"))

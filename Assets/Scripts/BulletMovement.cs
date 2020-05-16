@@ -7,10 +7,10 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D bulletRB;
     public float bulletSpeed;
     public float bulletLife;
+
     public GameObject player;
     private Transform playerTrans;
 
-    // Start is called before the first frame update
     void Awake() 
     {
         bulletRB = GetComponent<Rigidbody2D>();
@@ -28,18 +28,16 @@ public class BulletMovement : MonoBehaviour
     }
     void Start()
     {
-        bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
-        if (playerTrans.localRotation.y != 0)
+        if (playerTrans.localScale.x == -1f) 
         {
             bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
         }
-        else
+        if (playerTrans.localScale.x == 1f)
         {
             bulletRB.velocity = new Vector2(-bulletSpeed, bulletRB.velocity.y);
         }
     }
 
-    // Update iscalled once per frame
     void Update()
     {
         Destroy(gameObject, bulletLife);

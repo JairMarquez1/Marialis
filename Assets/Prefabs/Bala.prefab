@@ -120,6 +120,8 @@ MonoBehaviour:
   bulletSpeed: 10
   bulletLife: 0.5
   player: {fileID: 0}
+  x: 10
+  y: 4.26
 --- !u!61 &1905500149722302890
 BoxCollider2D:
   m_ObjectHideFlags: 0
