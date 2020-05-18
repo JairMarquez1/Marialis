@@ -11,7 +11,8 @@ public class Movement : MonoBehaviour
     public bool hasJetPack = false;     
     private bool jumping;               
     private bool grounded;               
-    private bool sneaking;   
+    private bool sneaking;
+    private bool flying;
     //Atributos
     public float jumpPower = 8f;         
     public float jetPackPower = 01.45f;  
@@ -22,8 +23,10 @@ public class Movement : MonoBehaviour
     private int jumpcount;               //Valor auxiliar (Sirve como contador)
     private float velx;
     private float vely;
+    private float timeRechargingFuel = 100f;
     //Scores
     public int scoreGear;
+    public float fuelJetpack = 100f; 
 
 
 
@@ -33,7 +36,6 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Gear")
         {
             scoreGear ++;
-
         }
         else if (collision.gameObject.name == "Gun")
         {
@@ -113,16 +115,18 @@ public class Movement : MonoBehaviour
             }
         }
         //--------------------------Volar(JetPack)----------------------------
-        if (Input.GetKey(KeyCode.Space) && hasJetPack && !sneaking)
+        if (Input.GetKey(KeyCode.Space) && hasJetPack && !sneaking && fuelJetpack > 0)
         {
             rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().SetBool("flying", true);
+            flying = true;
         }
         else
         {
             gameObject.GetComponent<Animator>().SetBool("flying", false);
+            flying = false;
         }
-
+        JetPack();
 
         PlayerShooting();
         if (hasGun)
@@ -151,7 +155,7 @@ public class Movement : MonoBehaviour
 
         velx = rigibody2d.velocity[0];
         vely = rigibody2d.velocity[1];
-        //Trunca la velocidad del personaje para que nunca super ciertos valores.
+        //Trunca la velocidad del personaje para que nunca supere ciertos valores.
         rigibody2d.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), Mathf.Clamp(vely, -9.8f, maxVely));
         //Debug.Log(rigibody2d.velocity);
     }
@@ -164,5 +168,20 @@ public class Movement : MonoBehaviour
         {
             Instantiate(bulletPrefab, bulletSpawner.position, bulletSpawner.rotation);
         }
+    }
+
+
+    public void JetPack()
+    {
+        float usageRate = 120f; //Tasa de uso.
+        float regeneratioRate = 20f; //Tasa de regeneración
+
+        if(flying)
+        fuelJetpack -= usageRate * Time.deltaTime; //Reduce el combustible del Jetpack.
+
+        if(!flying)
+        fuelJetpack += regeneratioRate * Time.deltaTime; //Regenera el combustible del JetPack.
+
+        fuelJetpack = Mathf.Clamp(fuelJetpack, -10, 100);
     }
 }

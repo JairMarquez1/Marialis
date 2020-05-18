@@ -6730,6 +6730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 905865853284943387}
   gearText: {fileID: 653660930}
+  fuelJetPackText: {fileID: 0}
   script: {fileID: 0}
 --- !u!1 &973087660
 GameObject:
