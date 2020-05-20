@@ -15,6 +15,6 @@ public class ScoreView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gearText.text =script.scoreGear.ToString();
+        gearText.text = script.scoreGear.ToString();
     }
 }

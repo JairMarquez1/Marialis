@@ -182,6 +182,9 @@ public class Movement : MonoBehaviour
         if(!flying)
         fuelJetpack += regeneratioRate * Time.deltaTime; //Regenera el combustible del JetPack.
 
+        if (flying && fuelJetpack <= 0) //Aumenta ligeramente el tiempo de generación cuando el combustible se agota por completo.
+            fuelJetpack = -10f;
+        
         fuelJetpack = Mathf.Clamp(fuelJetpack, -10, 100);
     }
 }
