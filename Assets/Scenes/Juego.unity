@@ -7362,7 +7362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7384,7 +7384,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312073237}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!114 &1312073241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7397,6 +7397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b234c5ef1f05694697913df05e06e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseView: {fileID: 621018505}
+  iconView: {fileID: 1545566109}
   fuelView: {fileID: 115385360}
   player: {fileID: 905865853284943389}
 --- !u!1 &1375877108
