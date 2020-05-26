@@ -30,11 +30,13 @@ public class Enemy_1 : MonoBehaviour
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
             transform.localRotation = Quaternion.Euler(0, 180, 0);
+            //transform.localScale = new Vector3(1f, 1, 1);
         }
         else
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
             transform.localRotation = Quaternion.Euler(0, 0, 0);
+            //transform.localScale = new Vector3(-1f, 1, 1);
         }
     }
 }

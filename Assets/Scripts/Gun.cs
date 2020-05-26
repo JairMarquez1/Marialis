@@ -5,24 +5,45 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public bool touchingPlayer;
+    private Movement player;
+
+    private void Awake()
     {
-        //Debug.Log(collision.gameObject.name);
+        touchingPlayer = false;
+        player = GameObject.Find("Astronauta1").GetComponent<Movement>();
+    }
+
+
+    /*Cuando está tocando el accesorio*/
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.name == "Astronauta1")
+            touchingPlayer = true;
+    }
+
+    /*Cuando NO está tocando el accesorio*/
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Astronauta1")
+            touchingPlayer = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if (touchingPlayer && Input.GetKeyDown(KeyCode.Z))
         {
+            //Poner en "true" el accesorio que le pertenece al Script
+            player.hasGun = true; 
 
-            Destroy(gameObject);
+            /*Poner EL RESTO de los accesorios en false*/
+            player.hasJetPack = false;
+            //accesory2 = false;
+            //accesory3 = false;
+            //... = false;
+            
+            Destroy(gameObject); //Simula que el personaje toma el objeto.
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }
