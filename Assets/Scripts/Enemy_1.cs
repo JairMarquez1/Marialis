@@ -8,10 +8,12 @@ public class Enemy_1 : MonoBehaviour
     public int health = 2;
     public float speed = -1;
     public bool MoveRight = true;
+    public Transform firePoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         MoveRight = !MoveRight;
+        firePoint.transform.Rotate(0, 0, 180);
         if (collision.gameObject.tag == "Bullet")
         {
             health -= 1;
@@ -28,15 +30,15 @@ public class Enemy_1 : MonoBehaviour
     {
         if (MoveRight)
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-            //transform.localScale = new Vector3(1f, 1, 1);
+            transform.Translate(-speed * Time.deltaTime, 0, 0);
+            //transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localScale = new Vector3(-1f, 1, 1);
         }
         else
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-            //transform.localScale = new Vector3(-1f, 1, 1);
+            //transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localScale = new Vector3(1f, 1, 1);
         }
     }
 }

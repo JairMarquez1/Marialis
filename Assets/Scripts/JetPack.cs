@@ -19,6 +19,12 @@ public class JetPack : MonoBehaviour
     {
         if (collision.gameObject.name == "Astronauta1")
             touchingPlayer = true;
+        else
+        {
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            gameObject.transform.Translate(0, 0.3f, 0);
+            gameObject.GetComponent<FloatingItem>().enabled = true;
+        }
     }
 
     /*Cuando NO está tocando el accesorio*/

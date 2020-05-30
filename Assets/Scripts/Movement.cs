@@ -157,6 +157,7 @@ public class Movement : MonoBehaviour
         JetPack();
 
         PlayerShooting();
+
         if (hasGun)
         {
             gameObject.GetComponent<Animator>().SetBool("withgun", true);
@@ -241,6 +242,7 @@ public class Movement : MonoBehaviour
            GameObject gun = Instantiate(gunAccessory, transform.position, transform.rotation); //1
            gun.name = "gun"; //2
            hasGun = false; //3
+           gameObject.GetComponent<Animator>().SetBool("withgun", false);
         }
 
         if(hasJetPack && Input.GetKeyDown(KeyCode.Z) && coolDownAccessory == 100f)
@@ -248,6 +250,7 @@ public class Movement : MonoBehaviour
             GameObject jetPack = Instantiate(jetPackAccessory, transform.position, transform.rotation);
             jetPack.name = "jetPack";
             hasJetPack = false;
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
         }
     }
 }

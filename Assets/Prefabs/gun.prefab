@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1331072588905323500}
   - component: {fileID: 1331072588905323501}
   - component: {fileID: 1331072588905323502}
+  - component: {fileID: 1384141975045747260}
   m_Layer: 0
   m_Name: gun
   m_TagString: Accessory
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73e245b4b75c2d841a3ffbbe91fe176c, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 5
 --- !u!114 &1331072588905323501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee515eefaeaa1e4f9134d8370b3f892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchingPlayer: 0
 --- !u!61 &1331072588905323502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +132,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.000000014901161}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,3 +145,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.35}
   m_EdgeRadius: 0
+--- !u!114 &1384141975045747260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331072588905323503}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeba7f1228bd7c499bc4113cb7ac427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  distance: 0.2
