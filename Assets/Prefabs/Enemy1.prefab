@@ -103,6 +103,7 @@ MonoBehaviour:
   health: 2
   speed: -1
   MoveRight: 0
+  firePoint: {fileID: 3075836310528040078}
 --- !u!61 &3075836310317487999
 BoxCollider2D:
   m_ObjectHideFlags: 0

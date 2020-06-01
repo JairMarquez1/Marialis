@@ -8,10 +8,14 @@ public class PhysicsRockLaunch : MonoBehaviour
     public float forceX;
     public float forceY;
     public float rockLife = 5f;
+    public float distance;
+    private Transform player;
 
     void Start()
     {
-       rock.AddForce(-transform.up * 8f,ForceMode2D.Impulse);
+       player = GameObject.FindGameObjectWithTag("Player").transform;
+       distance = (player.position.x - transform.position.x);
+       rock.AddForce(new Vector2(forceX * distance * (0.55f + Random.Range(-.2f,.2f)), forceY),ForceMode2D.Impulse);
     }
 
     void Update()

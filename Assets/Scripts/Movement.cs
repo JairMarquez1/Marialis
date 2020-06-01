@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     private int jumpcount;               //Valor auxiliar (Sirve como contador)
     private float velx;
     private float vely;
-    private float timeRechargingFuel = 100f;
+    //private float timeRechargingFuel = 100f;
     public float coolDownAccessory = 0f;
     //Scores
     public int scoreGear;

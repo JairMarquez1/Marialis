@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8996341381847992137}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -134,5 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rock: {fileID: 3144533121462725024}
-  forceX: 130.6
-  forceY: 345.3
+  forceX: 1
+  forceY: 10
+  rockLife: 1.2
+  distance: 0
+  player: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958, type: 3}

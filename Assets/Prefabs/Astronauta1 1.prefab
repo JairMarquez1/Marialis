@@ -171,15 +171,24 @@ MonoBehaviour:
   bulletSpawner: {fileID: 6143196628694662483}
   bulletPrefab: {fileID: 4897804204678468767, guid: 48195d8598e84a14fabd546602199c0d,
     type: 3}
+  jetPackAccessory: {fileID: 1917651756423216436, guid: 93460e843a6ba324087c3fd1a6e1e53c,
+    type: 3}
+  gunAccessory: {fileID: 1331072588905323503, guid: 2242f00e81157004d949ed4d65e35187,
+    type: 3}
   hasGun: 0
   hasJetPack: 0
+  touchingAccessory: 0
+  touchingGun: 0
+  touchingJetPack: 0
   jumpPower: 10
   jetPackPower: 1.45
   speed: 1000
   maxVelx: 10
   maxVely: 15
   jumpDuration: 5
+  coolDownAccessory: 0
   scoreGear: 0
+  fuelJetpack: 100
 --- !u!61 &4299045337381733331
 BoxCollider2D:
   m_ObjectHideFlags: 0
