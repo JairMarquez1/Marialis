@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 3144533121462725025, guid: 996a8b2c422bc2f428646ac337323614,
     type: 3}
-  player: {fileID: 6143196629520586819, guid: 8c8cce8a36a11cd49b3dd8f74e267958, type: 3}
   gearPrefab: {fileID: 124407074082820589, guid: 659c74d53d71ef64280f07a435a37523,
     type: 3}
   visionRadius: 11
