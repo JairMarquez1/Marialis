@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Movement : MonoBehaviour
@@ -36,22 +37,13 @@ public class Movement : MonoBehaviour
     public int scoreGear;
     public float fuelJetpack = 100f;
 
-
-
-
     private Rigidbody2D rigibody2d;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Gear")
-        {
             scoreGear++;
-        }
-        else if (collision.transform.tag == "ground")
-        {
-            grounded = true;
-        }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Accessory")
@@ -64,8 +56,7 @@ public class Movement : MonoBehaviour
             touchingGun = true;
         if (collision.gameObject.name == "jetPack")
             touchingJetPack = true;
-    }
-
+}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -252,5 +243,10 @@ public class Movement : MonoBehaviour
             hasJetPack = false;
             gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
         }
+
+    }
+    public void set_ground(bool boolean)
+    {
+        grounded = boolean;
     }
 }
