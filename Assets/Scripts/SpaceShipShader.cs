@@ -8,7 +8,7 @@ public class SpaceShipShader : MonoBehaviour
     public SpriteRenderer outsideShip;
     public GameObject barriers;
 
-    private bool isInside = false;
+    public bool isInside = false;
     private float opacityTime = 0.025f;
     private float opacity = 0f;
 
