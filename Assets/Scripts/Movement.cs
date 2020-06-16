@@ -17,8 +17,8 @@ public class Movement : MonoBehaviour
     public bool touchingGun = false;
     public bool touchingJetPack = false;
 
-    private bool jumping;
-    private bool grounded;
+    public bool grounded;
+    public bool jumping;   
     private bool sneaking;
     private bool flying;
     //Atributos
