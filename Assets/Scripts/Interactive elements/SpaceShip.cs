@@ -12,6 +12,7 @@ public class SpaceShip : MonoBehaviour
 
     public bool isInside;
     public bool isTouchingDoor;
+    public bool isOpeningDoor;
     private float opacityTime = 1.5f;
     private float opacity;
     private float doorOriginPos;
@@ -49,6 +50,8 @@ public class SpaceShip : MonoBehaviour
     {
         if (isTouchingDoor == true && Input.GetKeyDown(KeyCode.X) && player.grounded == true)
         {
+            isOpeningDoor = true;
+
             if (isInside==true)
                 isInside = false; //Saliendo.
             else
@@ -58,6 +61,8 @@ public class SpaceShip : MonoBehaviour
         }
       else
         {
+            isOpeningDoor = false;
+
             doorAnimation(false);
         }
            
