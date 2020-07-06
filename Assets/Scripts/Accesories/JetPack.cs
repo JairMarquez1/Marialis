@@ -6,6 +6,7 @@ public class JetPack : MonoBehaviour
 {
     public bool touchingPlayer;
     private Movement player;
+    private bool physics = true;
 
     private void Awake()
     {
@@ -17,13 +18,14 @@ public class JetPack : MonoBehaviour
     /*Cuando está tocando el accesorio*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Astronauta1")
+        if (collision.gameObject.tag == "Player")
             touchingPlayer = true;
-        else
+        else if (physics)
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             gameObject.transform.Translate(0, 0.3f, 0);
             gameObject.GetComponent<FloatingItem>().enabled = true;
+            physics = false;
         }
     }
 

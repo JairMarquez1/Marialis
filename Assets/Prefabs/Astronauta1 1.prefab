@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 875011583635035956}
   m_Layer: 0
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,6 +268,8 @@ MonoBehaviour:
   touchingAccessory: 0
   touchingGun: 0
   touchingJetPack: 0
+  grounded: 0
+  jumping: 0
   jumpPower: 10
   jetPackPower: 1.45
   speed: 1000

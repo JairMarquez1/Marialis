@@ -39,18 +39,18 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D rigibody2d;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Gear")
             scoreGear++;
-    }
+    }*/
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Accessory")
             touchingAccessory = true;
-
-        coolDownAccessory = 0f;
-
+            coolDownAccessory = 0f;
+        if (collision.gameObject.tag == "Gear")
+            scoreGear++;
         /*Tomar accesorios al tocarlos*/
         if (collision.gameObject.name == "gun")
             touchingGun = true;
@@ -230,18 +230,18 @@ public class Movement : MonoBehaviour
 
         if (hasGun && Input.GetKeyDown(KeyCode.Z) && coolDownAccessory == 100f)
         {
+           gameObject.GetComponent<Animator>().SetBool("withgun", false);
            GameObject gun = Instantiate(gunAccessory, transform.position, transform.rotation); //1
            gun.name = "gun"; //2
            hasGun = false; //3
-           gameObject.GetComponent<Animator>().SetBool("withgun", false);
         }
 
         if(hasJetPack && Input.GetKeyDown(KeyCode.Z) && coolDownAccessory == 100f)
         {
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
             GameObject jetPack = Instantiate(jetPackAccessory, transform.position, transform.rotation);
             jetPack.name = "jetPack";
             hasJetPack = false;
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
         }
 
     }

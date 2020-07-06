@@ -18,14 +18,14 @@ public class Gun : MonoBehaviour
     /*Cuando está tocando el accesorio*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Astronauta1")
+        if (collision.gameObject.tag == "Player")
             touchingPlayer = true;
-        else
+        /*else
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             gameObject.transform.Translate(0, 0.3f, 0);
             gameObject.GetComponent<FloatingItem>().enabled = true;
-        }
+        }*/
     }
 
     /*Cuando NO está tocando el accesorio*/
