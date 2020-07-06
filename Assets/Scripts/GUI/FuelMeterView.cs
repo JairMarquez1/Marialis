@@ -10,12 +10,10 @@ public class FuelMeterView : MonoBehaviour
     public Image iconView;
     public Image fuelView; 
     public Movement player;
-<<<<<<< HEAD
-=======
+
 
 
     private float maxFuel = 100f;
->>>>>>> d70b835570a0a0e485f527f7832202e706ad0dce
 
 
     // Update is called once per frame
@@ -24,12 +22,9 @@ public class FuelMeterView : MonoBehaviour
         float fuel = player.fuelJetpack;
         bool hasJetPack = player.hasJetPack;
 
-<<<<<<< HEAD
-=======
         fuel = Mathf.Clamp(fuel, 0f, 100f); 
         fuelView.rectTransform.localScale = new Vector2(1f, fuel/maxFuel); //Barra de combustible. (Escala de 0 a 1)
 
->>>>>>> d70b835570a0a0e485f527f7832202e706ad0dce
 
         /*Muestra el medidor de combustible si el jugador tiene (o no) el JetPack*/
         if (hasJetPack)

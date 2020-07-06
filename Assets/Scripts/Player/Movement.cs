@@ -208,7 +208,7 @@ public class Movement : MonoBehaviour
         if (flying && fuelJetpack <= 0) //Aumenta ligeramente el tiempo de generación cuando el combustible se agota por completo.
             fuelJetpack = -10f;
 
-        fuelJetpack = Mathf.Clamp(fuelJetpack, -10, 100);
+        fuelJetpack = Mathf.Clamp(fuelJetpack, -10f, 100f);
     } 
 
 
