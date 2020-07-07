@@ -7398,8 +7398,8 @@ MonoBehaviour:
   volumeAmbient: 0
   volumeEffects: 0
   spaceShip: {fileID: 1858984801}
-  wind_Clip: {fileID: 8300000, guid: ab6b8927836801d4d977a76678ad057a, type: 3}
-  insideShip_Clip: {fileID: 8300000, guid: 69d88e6f81fa8e44d94edb0a1cfa71ea, type: 3}
+  wind_Clip: {fileID: 8300000, guid: f1c0395b292fa514b9db8aeed06ede28, type: 3}
+  insideShip_Clip: {fileID: 8300000, guid: 3477908f6e8101d46a46523a267ff2bc, type: 3}
 --- !u!82 &1024378414
 AudioSource:
   m_ObjectHideFlags: 0

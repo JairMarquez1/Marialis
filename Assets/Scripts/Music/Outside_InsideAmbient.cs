@@ -27,6 +27,7 @@ public class Outside_InsideAmbient : MonoBehaviour
 
     private void Start()
     {
+        audioAmbient.clip = wind_Clip;
         audioAmbient.Play();
     }
 
