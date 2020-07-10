@@ -36,6 +36,7 @@ public class Movement : MonoBehaviour
     //Scores
     public int scoreGear;
     public float fuelJetpack = 100f;
+    public int life;
 
     private Rigidbody2D rigibody2d;
 
@@ -51,6 +52,8 @@ public class Movement : MonoBehaviour
             coolDownAccessory = 0f;
         if (collision.gameObject.tag == "Gear")
             scoreGear++;
+        if (collision.gameObject.tag == "Dangerous")
+            life--;
         /*Tomar accesorios al tocarlos*/
         if (collision.gameObject.name == "gun")
             touchingGun = true;
@@ -73,6 +76,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         rigibody2d = gameObject.GetComponent<Rigidbody2D>();
+        life = 100;
     }
 
     void Update()
@@ -180,7 +184,6 @@ public class Movement : MonoBehaviour
         vely = rigibody2d.velocity[1];
         //Trunca la velocidad del personaje para que nunca supere ciertos valores.
         rigibody2d.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), Mathf.Clamp(vely, -9.8f, maxVely));
-        //Debug.Log(rigibody2d.velocity);
     }
 
 
@@ -248,5 +251,10 @@ public class Movement : MonoBehaviour
     public void set_ground(bool boolean)
     {
         grounded = boolean;
+    }
+
+    public void damage(int quantity)
+    {
+        life--;
     }
 }

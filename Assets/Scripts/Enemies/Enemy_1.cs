@@ -12,8 +12,11 @@ public class Enemy_1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        MoveRight = !MoveRight;
-        firePoint.transform.Rotate(0, 0, 180);
+        if (collision.gameObject.tag != "Player")
+        {
+            MoveRight = !MoveRight;
+            firePoint.transform.Rotate(0, 0, 180);
+        }
         if (collision.gameObject.tag == "Bullet")
         {
             health -= 1;
