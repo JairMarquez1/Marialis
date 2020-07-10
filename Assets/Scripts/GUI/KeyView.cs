@@ -5,25 +5,50 @@ using UnityEngine;
 
 public class KeyView : MonoBehaviour
 {
-    public Image iconView;
+    /*Teclas*/
+    public Image iconView_X;
+    public Image iconView_Z;
+    public Image iconView_Right;
+    public Image iconView_Left;
+    public Image iconView_Down;
+    public Image iconView_Up;
 
+    /*Interacciones*/
     public SpaceShip spaceShip;
+    public triggerTutorial phase;
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
         bool isTouchingDoor = spaceShip.isTouchingDoor;
+        bool isNoob = phase.isNoob;
 
-
-
-        /*Muestra el medidor de combustible si el jugador tiene (o no) el JetPack*/
-        if (isTouchingDoor)
+        if (isNoob)
         {
-            iconView.enabled = true;
+            iconView_Right.enabled = true;
+            iconView_Left.enabled = true;
+            iconView_Down.enabled = true;
+            iconView_Up.enabled = true;
         }
         else
         {
-            iconView.enabled = false;
+            iconView_Right.enabled = false;
+            iconView_Left.enabled = false;
+            iconView_Down.enabled = false;
+            iconView_Up.enabled = false;
         }
+
+   
+
+
+        /*Se muestra si está en un objeto interactivo*/
+        if (isTouchingDoor)
+            iconView_X.enabled = true;  
+        else
+            iconView_X.enabled = false;
+
+
+        
     }
 }
