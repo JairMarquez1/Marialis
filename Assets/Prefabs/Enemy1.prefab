@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 3075836310528040078}
   lineRenderer: {fileID: 3075836310538141309}
+  script: {fileID: 0}
 --- !u!1 &3075836310528040077
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ GameObject:
   - component: {fileID: 3075836310538141309}
   m_Layer: 0
   m_Name: Line
-  m_TagString: Untagged
+  m_TagString: Dangerous
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
