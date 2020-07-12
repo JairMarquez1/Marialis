@@ -7,7 +7,7 @@ public class Enemy_1 : MonoBehaviour
     public GameObject gearPrefab;
     public int health = 2;
     public float speed = -1;
-    public bool MoveRight = true;
+    public bool MoveRight;
     public Transform firePoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +26,15 @@ public class Enemy_1 : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    void Start()
+    {
+        if (transform.localScale.x < 0) { 
+            MoveRight = true;
+        firePoint.transform.Rotate(0, 0, 180); }
+        else
+            MoveRight = false;
     }
 
     // Update is called once per frame

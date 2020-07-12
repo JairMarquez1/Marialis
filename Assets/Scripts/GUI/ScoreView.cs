@@ -7,6 +7,7 @@ public class ScoreView : MonoBehaviour
     public Text gearText;
     public Text lifeText;
     private Movement script;
+    public Image life;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,5 +19,6 @@ public class ScoreView : MonoBehaviour
     {
         gearText.text = script.scoreGear.ToString();
         lifeText.text = Mathf.Clamp(script.life, 0, 100).ToString();
+        life.rectTransform.sizeDelta = new Vector2(script.life * 1.35f, 40);
     }
 }

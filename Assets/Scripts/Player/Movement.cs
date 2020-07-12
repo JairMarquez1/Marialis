@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     public bool jumping;   
     private bool sneaking;
     private bool flying;
+    private bool immunized = false;
     //Atributos
     public float jumpPower = 8f;
     public float jetPackPower = 01.45f;
@@ -29,6 +30,7 @@ public class Movement : MonoBehaviour
     public float maxVely = 10f;
     public int jumpDuration;
     private int jumpcount;               //Valor auxiliar (Sirve como contador)
+    private float immunizedcount;         //Valor auxiliar (Sirve como contador)
     private float velx;
     private float vely;
     //private float timeRechargingFuel = 100f;
@@ -53,7 +55,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Gear")
             scoreGear++;
         if (collision.gameObject.tag == "Dangerous")
-            life--;
+            damage(1);
         /*Tomar accesorios al tocarlos*/
         if (collision.gameObject.name == "gun")
             touchingGun = true;
@@ -149,10 +151,7 @@ public class Movement : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("flying", false);
             flying = false;
         }
-        JetPack();
-
-        PlayerShooting();
-
+        //--------------------------Validar accesorios------------------------
         if (hasGun)
         {
             gameObject.GetComponent<Animator>().SetBool("withgun", true);
@@ -161,7 +160,21 @@ public class Movement : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
         }
+        if (immunized)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+            immunizedcount -= Time.deltaTime;
+            Debug.Log(immunizedcount);
+            if (immunizedcount < 0) 
+                { 
+                gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
+                immunized = false;
+                }
+    }
 
+
+        JetPack();
+        PlayerShooting();
         dropAccesories();
         
     }
@@ -184,8 +197,8 @@ public class Movement : MonoBehaviour
         vely = rigibody2d.velocity[1];
         //Trunca la velocidad del personaje para que nunca supere ciertos valores.
         rigibody2d.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), Mathf.Clamp(vely, -9.8f, maxVely));
-    }
 
+    }
 
 
     public void PlayerShooting()
@@ -213,8 +226,6 @@ public class Movement : MonoBehaviour
 
         fuelJetpack = Mathf.Clamp(fuelJetpack, -10f, 100f);
     } 
-
-
 
     public void dropAccesories()
     {
@@ -255,6 +266,11 @@ public class Movement : MonoBehaviour
 
     public void damage(int quantity)
     {
-        life--;
+        if (!immunized)
+        {
+            life-= 33;
+            immunized = true;
+            immunizedcount = 0.5f;
+        }
     }
 }

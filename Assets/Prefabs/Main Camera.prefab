@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68fc9a08d565524bbde871955ded1c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 0}
+  follow: {fileID: 6143196629520586819, guid: 8c8cce8a36a11cd49b3dd8f74e267958, type: 3}
   minCamPos: {x: -100, y: 0}
   maxCamPos: {x: 100, y: 50}
   cameraResize: 5
