@@ -18,7 +18,7 @@ public class FloatingItem : MonoBehaviour
             if (autoPickUp)
             Destroy(gameObject);
         }
-        else if (physics)
+        else if (physics && collision.gameObject.tag=="ground")
         {
             physics = false;
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;

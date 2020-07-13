@@ -20,13 +20,13 @@ public class JetPack : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
             touchingPlayer = true;
-        else if (physics)
+        /*else if (physics)
         {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             gameObject.transform.Translate(0, 0.3f, 0);
             gameObject.GetComponent<FloatingItem>().enabled = true;
             physics = false;
-        }
+        }*/
     }
 
     /*Cuando NO está tocando el accesorio*/

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8695972036778806264}
   - component: {fileID: 8695972036778806271}
   - component: {fileID: 8695972036778806267}
-  - component: {fileID: 8695972036778806266}
+  - component: {fileID: 1400030558405975493}
   m_Layer: 0
   m_Name: Enemy5
   m_TagString: Untagged
@@ -163,8 +163,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &8695972036778806266
-CapsuleCollider2D:
+--- !u!61 &1400030558405975493
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,6 +176,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011461379, y: -0.004805892}
-  m_Size: {x: 1.7055197, y: 0.67693585}
-  m_Direction: 1
+  m_Offset: {x: 0.024045348, y: -0.0034143925}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9, y: 1.15}
+    newSize: {x: 1.9, y: 1.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7542565, y: 0.66461706}
+  m_EdgeRadius: 0

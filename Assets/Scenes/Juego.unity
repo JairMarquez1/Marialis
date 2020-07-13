@@ -5707,8 +5707,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50ed46eee9d5ed40889767128d8b517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconView: {fileID: 1331389897}
+  iconView_X: {fileID: 0}
+  iconView_Z: {fileID: 0}
+  iconView_Right: {fileID: 0}
+  iconView_Left: {fileID: 0}
+  iconView_Down: {fileID: 0}
+  iconView_Up: {fileID: 0}
   spaceShip: {fileID: 1858984801}
+  phase: {fileID: 0}
 --- !u!1 &291069346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,9 +6877,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72119dee8f559ba41a7b2cbcc0c22dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 905865853284943387}
   gearText: {fileID: 653660930}
-  script: {fileID: 0}
+  lifeText: {fileID: 0}
+  life: {fileID: 0}
 --- !u!4 &778014750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3075836310317487985, guid: a9f3e719998933842905ee1a408a6adf,

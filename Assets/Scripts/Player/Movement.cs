@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 
     public Transform bulletSpawner;
     public GameObject bulletPrefab;
+    private GameManager gameManager;
     //Accesorios (Prefabs)
     public GameObject jetPackAccessory;
     public GameObject gunAccessory;
@@ -74,11 +75,14 @@ public class Movement : MonoBehaviour
             touchingJetPack = false;
     }
 
-
+    void Start()
+    {
+        life = 3;
+    }
     private void Awake()
     {
         rigibody2d = gameObject.GetComponent<Rigidbody2D>();
-        life = 100;
+        gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
     }
 
     void Update()
@@ -164,7 +168,7 @@ public class Movement : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
             immunizedcount -= Time.deltaTime;
-            Debug.Log(immunizedcount);
+            //Debug.Log(immunizedcount);
             if (immunizedcount < 0) 
                 { 
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
@@ -264,13 +268,22 @@ public class Movement : MonoBehaviour
         grounded = boolean;
     }
 
-    public void damage(int quantity)
+    public void damage(int damquantity)
     {
         if (!immunized)
         {
-            life-= 33;
+            life-= damquantity;
             immunized = true;
             immunizedcount = 0.5f;
+            if (life < 1)
+            {
+                //Time.timeScale = 0f;
+                gameObject.GetComponent<Animator>().SetBool("sneaking", true);
+                gameManager.GameOver = true;
+                //gameManager.RestartGame();
+                Destroy(gameObject);
+            }
+
         }
     }
 }
