@@ -6500,6 +6500,7 @@ MonoBehaviour:
   speedY: 0
   ejeX: 1
   ejeY: 0
+  parallaxEffectMultiplier: {x: 0.9, y: 0}
 --- !u!212 &489393902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6663,6 +6664,7 @@ MonoBehaviour:
   speedY: 0
   ejeX: 1
   ejeY: 0
+  parallaxEffectMultiplier: {x: 0.8, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6703,9 +6705,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 905865853284943387}
-  minCamPos: {x: -100, y: 0}
-  maxCamPos: {x: 100, y: 50}
-  cameraResize: 5
+  smoothspeed: 0.5
+  offset: {x: 0, y: 1.5, z: -1}
+  velocity: {x: 0, y: 0, z: -0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -7483,9 +7485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72119dee8f559ba41a7b2cbcc0c22dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 905865853284943387}
   gearText: {fileID: 653660930}
-  script: {fileID: 0}
+  lifeText: {fileID: 0}
+  life: {fileID: 0}
 --- !u!4 &778014750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3075836310317487985, guid: a9f3e719998933842905ee1a408a6adf,
@@ -8181,6 +8183,7 @@ GameObject:
   - component: {fileID: 1210570631}
   - component: {fileID: 1210570630}
   - component: {fileID: 1210570629}
+  - component: {fileID: 1210570632}
   m_Layer: 0
   m_Name: Stars
   m_TagString: Untagged
@@ -8200,8 +8203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6d41fa54020bc49ac54f1a42dffb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 519420028}
-  cameraSize: {fileID: 519420031}
   speedRotation: 0.1
   generalLight: {fileID: 197450675}
   dayTime: 8
@@ -8269,6 +8270,24 @@ Transform:
   m_Father: {fileID: 1814495868}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1210570632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210570628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adba4dd0bcaef0b41b5c06307f74bbf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follow: {fileID: 519420028}
+  speedX: 0
+  speedY: 0
+  ejeX: 0
+  ejeY: 0
+  parallaxEffectMultiplier: {x: 1, y: 0}
 --- !u!1 &1252178662
 GameObject:
   m_ObjectHideFlags: 0
@@ -10978,6 +10997,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Astronauta1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143196629520587704, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}

@@ -6032,6 +6032,7 @@ MonoBehaviour:
   speedY: 0
   ejeX: 1
   ejeY: 0
+  parallaxEffectMultiplier: {x: 0.9, y: 0}
 --- !u!212 &489393902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6195,6 +6196,7 @@ MonoBehaviour:
   speedY: 0
   ejeX: 1
   ejeY: 0
+  parallaxEffectMultiplier: {x: 0.8, y: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6235,9 +6237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 905865853284943387}
-  minCamPos: {x: -100, y: 0}
-  maxCamPos: {x: 100, y: 50}
-  cameraResize: 5
+  smoothspeed: 0.5
+  offset: {x: 0, y: 1.5, z: -1}
+  velocity: {x: -0.0005321132, y: -0.00000045106333, z: -0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -7446,8 +7448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6d41fa54020bc49ac54f1a42dffb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: {fileID: 519420028}
-  cameraSize: {fileID: 519420031}
   speedRotation: 0.1
   generalLight: {fileID: 197450675}
   dayTime: 8
@@ -9913,6 +9913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Astronauta1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143196629520587704, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}

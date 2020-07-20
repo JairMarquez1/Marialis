@@ -14,18 +14,25 @@ public class ParallaxEffect : MonoBehaviour
 
     public bool ejeX = true;
     public bool ejeY = true;
+
+
+    private Vector3 lastCameraPosition;
+    private Transform cameraTransform;
+    [SerializeField] private Vector2 parallaxEffectMultiplier;
     
 
     void Start()
     {
         posXOriginal = transform.position.x;
         posYOriginal = transform.position.y;
+        cameraTransform = Camera.main.transform;
+        lastCameraPosition = cameraTransform.position;
     }
 
-    void Update()
+    void LateUpdate()
     {
         /*Mueve la posición de la cámara*/
-        float posX = follow.transform.position.x;
+        /*float posX = follow.transform.position.x;
         float posY = follow.transform.position.y;
 
 
@@ -43,8 +50,11 @@ public class ParallaxEffect : MonoBehaviour
         if (ejeX == false && ejeY == true)
         {
             transform.position = new Vector3(posXOriginal, posY + posYOriginal + (posY * speedY), transform.position.z);
-        }
+        }*/
 
+        Vector3 deltaMovement = cameraTransform.position - lastCameraPosition;
+        transform.position += new Vector3(deltaMovement.x * parallaxEffectMultiplier.x, deltaMovement.y * parallaxEffectMultiplier.y);
+        lastCameraPosition = cameraTransform.position;
 
 
 
