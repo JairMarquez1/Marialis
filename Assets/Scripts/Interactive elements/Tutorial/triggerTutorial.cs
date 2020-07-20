@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class triggerTutorial : MonoBehaviour
 {
-    public bool isNoob;
+    public bool isInside;
+    private bool auxiliar;
 
-    public void Start()
+    public void Awake()
     {
-        isNoob = false;
+        auxiliar = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isNoob = true;
+        if (collision.gameObject.tag == "Player" && auxiliar == true)
+            isInside = true;
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isNoob = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            isInside = false;
+            auxiliar = false;
+        }
+            
     }
 }

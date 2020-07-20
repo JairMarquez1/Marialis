@@ -14,41 +14,57 @@ public class KeyView : MonoBehaviour
     public Image iconView_Up;
 
     /*Interacciones*/
-    public SpaceShip spaceShip;
-    public triggerTutorial phase;
+    public triggerTutorial sides;
+    public triggerTutorial sneak;
+    //public triggerTutorial...
+
+    public bool pressKeyToMoveSides;
+    public bool pressKeyToSneak;
+
+    private void Start()
+    {
+        iconView_Down.enabled = false;
+        iconView_Left.enabled = false;
+        iconView_Right.enabled = false;
+        iconView_Up.enabled = false;
+        iconView_X.enabled = false;
+        iconView_Z.enabled = false;
+    }
 
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        bool isTouchingDoor = spaceShip.isTouchingDoor;
-        bool isNoob = phase.isNoob;
+        PressKeyToMoveToTheSides();
+        PressKeyToSneak();
+        //...
+    }
 
-        if (isNoob)
+    private void PressKeyToMoveToTheSides()
+    {
+        pressKeyToMoveSides = sides.isInside;
+
+        if (pressKeyToMoveSides == true)
         {
             iconView_Right.enabled = true;
             iconView_Left.enabled = true;
-            iconView_Down.enabled = true;
-            iconView_Up.enabled = true;
         }
         else
         {
             iconView_Right.enabled = false;
             iconView_Left.enabled = false;
-            iconView_Down.enabled = false;
-            iconView_Up.enabled = false;
         }
+    }
 
-   
+    private void PressKeyToSneak()
+    {
+        pressKeyToSneak = sneak.isInside;
 
-
-        /*Se muestra si está en un objeto interactivo*/
-        if (isTouchingDoor)
-            iconView_X.enabled = true;  
+        if (pressKeyToSneak == true)
+            iconView_Down.enabled = true;       
         else
-            iconView_X.enabled = false;
-
-
+            iconView_Down.enabled = false;
         
     }
 }
+
+
