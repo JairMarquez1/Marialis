@@ -8709,9 +8709,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.139936, y: 0.7840805, z: -2.2324219}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1024378412}
-  - {fileID: 291069347}
+  m_Children: [{fileID: 1024378412}, {fileID: 291069347}]
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10997,6 +10995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Astronauta1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.06
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587704, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
