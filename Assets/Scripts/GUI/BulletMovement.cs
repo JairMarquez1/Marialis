@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
@@ -10,6 +11,7 @@ public class BulletMovement : MonoBehaviour
 
     public GameObject player;
     private Transform playerTrans;
+    private int direction;
 
     void Awake() 
     {
@@ -22,23 +24,37 @@ public class BulletMovement : MonoBehaviour
     {
         if (!collision.gameObject.GetComponent<BoxCollider2D>().isTrigger)
         {
-            Destroy(gameObject);
+            gameObject.GetComponent<Animator>().SetBool("explode", true);
+            bulletRB.velocity = new Vector2(direction*.3f, 0);
+            bulletLife = 10f;
         }
+    }
+
+    private void Explode()
+    {
+        Destroy(gameObject);
     }
     void Start()
     {
+        //Destroy(gameObject, bulletLife);
         if (playerTrans.localScale.x == -1f) 
         {
+            direction = 1;
             bulletRB.velocity = new Vector2(bulletSpeed, bulletRB.velocity.y);
         }
         if (playerTrans.localScale.x == 1f)
         {
+            direction = -1;
             bulletRB.velocity = new Vector2(-bulletSpeed, bulletRB.velocity.y);
         }
     }
 
     void Update()
     {
-        Destroy(gameObject, bulletLife);
+        bulletLife -= Time.deltaTime;
+        if (bulletLife < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

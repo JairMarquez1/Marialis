@@ -159,3 +159,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   distance: 0.2
+  autoPickUp: 0

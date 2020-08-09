@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 213523276130249574}
   - component: {fileID: 3185355570161629855}
   - component: {fileID: 875011583635035956}
+  - component: {fileID: 6498543355016701639}
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Player
@@ -87,6 +88,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0086, y: 0.463}
   m_Size: {x: 0.94, y: 1.28}
   m_Direction: 0
+--- !u!50 &6498543355016701639
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4389264027739340204}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &6143196628694662482
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +243,7 @@ Rigidbody2D:
   m_AngularDrag: 4.77
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 0fa6beb1e1e4c874d951be47bbd42907, type: 2}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -263,6 +285,7 @@ MonoBehaviour:
     type: 3}
   gunAccessory: {fileID: 1331072588905323503, guid: 2242f00e81157004d949ed4d65e35187,
     type: 3}
+  touching: {fileID: 0}
   hasGun: 0
   hasJetPack: 0
   touchingAccessory: 0
@@ -279,7 +302,7 @@ MonoBehaviour:
   coolDownAccessory: 0
   scoreGear: 0
   fuelJetpack: 100
-  life: 0
+  life: 8
 --- !u!61 &4299045337381733331
 BoxCollider2D:
   m_ObjectHideFlags: 0
