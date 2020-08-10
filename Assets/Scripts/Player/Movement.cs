@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     //Accesorios (Prefabs)
     public GameObject jetPackAccessory;
     public GameObject gunAccessory;
+    public GameObject touching;
     //Estados
     public bool hasGun = false;
     public bool hasJetPack = false;
@@ -50,29 +51,45 @@ public class Movement : MonoBehaviour
     }*/
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Accessory")
+        if (collision.gameObject.tag == "Accessory")
+        {
+            touching = collision.gameObject;
             touchingAccessory = true;
+            if (collision.gameObject.name == "gun") 
+            { 
+                touchingGun = true;
+                touchingJetPack = false;
+            }
+            if (collision.gameObject.name == "jetPack")
+            {
+                touchingJetPack = true;
+                touchingGun = false;
+            }
             coolDownAccessory = 0f;
+        }
+
         if (collision.gameObject.tag == "Gear")
+        {
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Debug.Log("1");
             scoreGear++;
+            Debug.Log("2");
+        }
+        /*Tomar accesorios al tocarlos*/
         if (collision.gameObject.tag == "Dangerous")
             damage(1);
-        /*Tomar accesorios al tocarlos*/
-        if (collision.gameObject.name == "gun")
-            touchingGun = true;
-        if (collision.gameObject.name == "jetPack")
-            touchingJetPack = true;
-}
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Accessory")
             touchingAccessory = false;
-
-        if (collision.gameObject.name == "gun")
-            touchingGun = false;
-        if (collision.gameObject.name == "jetPack")
-            touchingJetPack = false;
+        {
+            if (collision.gameObject.name == "gun")
+                touchingGun = false;
+            if (collision.gameObject.name == "jetPack")
+                touchingJetPack = false;
+        }
     }
 
     void Start()
@@ -155,15 +172,24 @@ public class Movement : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("flying", false);
             flying = false;
         }
-        //--------------------------Validar accesorios------------------------
+
+        //--------------------------Validar animación de accesorios---------------
         if (hasGun)
         {
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
             gameObject.GetComponent<Animator>().SetBool("withgun", true);
         }
-        if (hasJetPack)
+        else if (hasJetPack)
         {
+            gameObject.GetComponent<Animator>().SetBool("withgun", false);
             gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
         }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("withgun", false);
+            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
+        }
+        //------------------Periodo de inmunidad al recibir daño--------------
         if (immunized)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
@@ -179,8 +205,9 @@ public class Movement : MonoBehaviour
 
         JetPack();
         PlayerShooting();
-        dropAccesories();
         
+        takeDropAccessories();
+
     }
 
     void FixedUpdate()
@@ -229,40 +256,79 @@ public class Movement : MonoBehaviour
             fuelJetpack = -10f;
 
         fuelJetpack = Mathf.Clamp(fuelJetpack, -10f, 100f);
-    } 
+    }
 
-    public void dropAccesories()
+    public void takeDropAccessories()
     {
         float coolDownRate = 300f;
-
         if (!touchingAccessory)
             coolDownAccessory += coolDownRate * Time.deltaTime; //Regenera enfriamiento para tomar un arma.
-
         coolDownAccessory = Mathf.Clamp(coolDownAccessory, 0, 100f);
-
         /*Cada if tiene una serie de pasos
          1. Genera el accesorio que se quita. (Prefab)
          2. Le da genera un nombre al prefab generado.
          3. El personaje convierte el accesorio en "falso".
          */
-
-        if (hasGun && Input.GetKeyDown(KeyCode.Z) && coolDownAccessory == 100f)
-        {
-           gameObject.GetComponent<Animator>().SetBool("withgun", false);
-           GameObject gun = Instantiate(gunAccessory, transform.position, transform.rotation); //1
-           gun.name = "gun"; //2
-           hasGun = false; //3
+        if (Input.GetKeyDown(KeyCode.Z))
+        { 
+            if (hasGun /*&& coolDownAccessory == 100f*/)
+            {
+                gameObject.GetComponent<Animator>().SetBool("withgun", false);
+                GameObject gun = Instantiate(gunAccessory, transform.position, transform.rotation); //1
+                gun.name = "gun"; //2
+                hasGun = false; //3
+                Debug.Log("drop gun");
+            }
+            else if (hasJetPack /*&& coolDownAccessory == 100f*/)
+            {
+                gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
+                GameObject jetPack = Instantiate(jetPackAccessory, transform.position, transform.rotation);
+                jetPack.name = "jetPack";
+                hasJetPack = false;
+                Debug.Log("drop jetpack");
+            }
+            if (touchingGun)
+            {
+                //Poner en "true" el accesorio que le pertenece al Script
+                hasGun = true;
+                /*Poner EL RESTO de los accesorios en false*/
+                hasJetPack = false;
+                Destroy(touching); //Simula que el personaje toma el objeto.
+                Debug.Log("pick gun");
+            }
+            else if (touchingJetPack)
+            {
+                hasJetPack = true;
+                hasGun = false;
+                Destroy(touching);
+                Debug.Log("pick jetpack");
+            }
+            
         }
-
-        if(hasJetPack && Input.GetKeyDown(KeyCode.Z) && coolDownAccessory == 100f)
-        {
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
-            GameObject jetPack = Instantiate(jetPackAccessory, transform.position, transform.rotation);
-            jetPack.name = "jetPack";
-            hasJetPack = false;
-        }
-
     }
+        
+
+    /*public void takeAccessories()
+    {
+        if (touchingAccessory && Input.GetKeyDown(KeyCode.Z))
+        {
+            if (touchingGun)
+            {
+                //Poner en "true" el accesorio que le pertenece al Script
+                hasGun = true;
+                //Poner EL RESTO de los accesorios en false
+                hasJetPack = false;
+                Destroy(touching); //Simula que el personaje toma el objeto.
+            }
+            else if (touchingJetPack)
+            {
+                hasJetPack = true;
+                hasGun = false;
+                Destroy(touching);
+            }
+            Debug.Log("destroy");
+        }
+    }*/
     public void set_ground(bool boolean)
     {
         grounded = boolean;
