@@ -15,6 +15,7 @@ public class DialagueManager : MonoBehaviour
     public TextMeshPro displayText;
  
     bool isTrue;
+    bool dialogueHasStarted;
     public float typingSpeed;
 
     AudioSource myAudio;
@@ -24,6 +25,7 @@ public class DialagueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         myAudio = GetComponent<AudioSource>();
+        isTrue = false;
     }
 
 
@@ -72,6 +74,13 @@ public class DialagueManager : MonoBehaviour
 
     void Update()
     {
+        if (dialogueHasStarted == true)
+        {
+            StartDialogue();
+            dialogueHasStarted = false;
+        }
+
+
         if(Input.GetKeyDown(KeyCode.A) && isTrue == true)
         {
             NextSentence();
@@ -81,10 +90,9 @@ public class DialagueManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player") || dialogueHasStarted == false)
         {
-            StartDialogue();
-            isTrue = true;
+            dialogueHasStarted = true;
         }
         
     }
