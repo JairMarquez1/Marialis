@@ -94,7 +94,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
-        life = 3;
+        life = 30;
     }
     private void Awake()
     {

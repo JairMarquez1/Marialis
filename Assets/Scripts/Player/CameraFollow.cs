@@ -14,7 +14,7 @@ public class CameraFollow : MonoBehaviour
     {
         follow = GameObject.FindGameObjectWithTag("Player");
     }
-    void LateUpdate()
+    void Update()
     {
         Vector3 desiredPosition = follow.transform.position + offset;
         Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothspeed);

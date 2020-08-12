@@ -25,7 +25,7 @@ public class ParallaxEffect : MonoBehaviour
     {
         posXOriginal = transform.position.x;
         posYOriginal = transform.position.y;
-        cameraTransform = Camera.main.transform;
+        cameraTransform = follow.transform;
         lastCameraPosition = cameraTransform.position;
     }
 
