@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BulletMovement : MonoBehaviour
 {
@@ -22,11 +24,23 @@ public class BulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.GetComponent<BoxCollider2D>().isTrigger)
+        try
         {
-            gameObject.GetComponent<Animator>().SetBool("explode", true);
-            bulletRB.velocity = new Vector2(direction*.3f, 0);
-            bulletLife = 10f;
+            if (!collision.gameObject.GetComponent<BoxCollider2D>().isTrigger)
+            {
+                gameObject.GetComponent<Animator>().SetBool("explode", true);
+                bulletRB.velocity = new Vector2(direction * .3f, 0);
+                bulletLife = 10f;
+            }
+        }catch (MissingComponentException)
+        {
+            Debug.Log("hola");
+             if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
+            {
+                gameObject.GetComponent<Animator>().SetBool("explode", true);
+                bulletRB.velocity = new Vector2(direction * .3f, 0);
+                bulletLife = 10f;
+            }
         }
     }
 

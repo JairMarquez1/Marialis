@@ -40,8 +40,8 @@ public class Enemy4 : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1, 1);
             if (dist < toCloseRadius) 
             {
-                /*transform.Translate(speed * Time.deltaTime, 0, 0);*/
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
              }
         }
         else
