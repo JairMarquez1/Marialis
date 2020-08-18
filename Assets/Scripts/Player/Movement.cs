@@ -133,8 +133,8 @@ public class Movement : MonoBehaviour
                 speed *= 2f;
                 bulletSpawner.Translate(new Vector3(0f, 0.27f, 0f));
                 gameObject.GetComponent<Animator>().SetBool("sneaking", false);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.07f, -0.02f);
-                GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.86f);
+                GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.02f);
+                GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.9f);
                 sneaking = false;
             }
             //-----------Salto----------
@@ -155,8 +155,8 @@ public class Movement : MonoBehaviour
                 speed /= 2f;
                 bulletSpawner.Translate(new Vector3(0f, -0.27f, 0f));
                 gameObject.GetComponent<Animator>().SetBool("sneaking", true);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0.07f, -0.2f);
-                GetComponent<BoxCollider2D>().size = new Vector2(0.6f, 1.48f);
+                GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.25f);
+                GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.4f);
                 sneaking = true;
             }
         }
