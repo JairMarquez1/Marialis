@@ -1381,7 +1381,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1549853173}
-  - {fileID: 557213662}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6704,12 +6703,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.032765746, y: 0.3357284}
   m_EdgeRadius: 0
---- !u!4 &557213662 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1595476914}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &575800122
 GameObject:
   m_ObjectHideFlags: 0
@@ -9074,10 +9067,11 @@ MonoBehaviour:
     name: DotScreen1
     sentenceList:
     - "Para obst\xE1culos m\xE1s altos, es necesario saltar."
+    - 
   dialoguePanel: {fileID: 904784910}
   displayText: {fileID: 1564449722}
   typingSpeed: 0.035
-  typeSound: {fileID: 8300000, guid: ea84b3fa6afb364489a2f65e40f45945, type: 3}
+  typeSound: {fileID: 8300000, guid: 4ae2bb35c87e004499cd87f03aed237d, type: 3}
 --- !u!82 &904784913
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9287,8 +9281,9 @@ GameObject:
   - component: {fileID: 995551775}
   - component: {fileID: 995551774}
   - component: {fileID: 995551773}
+  - component: {fileID: 995551776}
   m_Layer: 0
-  m_Name: JetPack
+  m_Name: JetPack Deploy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9397,6 +9392,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &995551776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995551771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df2add14a911ea44907cb21c2d16987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jetPackPrefab: {fileID: 1917651756423216436, guid: 93460e843a6ba324087c3fd1a6e1e53c,
+    type: 3}
+  collision: {fileID: 995551773}
 --- !u!1 &1074423230
 GameObject:
   m_ObjectHideFlags: 0
@@ -9446,7 +9456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a50ed46eee9d5ed40889767128d8b517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {fileID: 639862960}
+  player: {fileID: 639862960}
   keyboardPosition: {fileID: 1074423230}
   X_key: {fileID: 1122230204}
   Z_key: {fileID: 180849079}
@@ -9457,9 +9467,6 @@ MonoBehaviour:
   sides: {fileID: 1574254962}
   sneak: {fileID: 820417276}
   jump: {fileID: 220668217}
-  pressKeyToMoveSides: 0
-  pressKeyToSneak: 0
-  pressKeyToJump: 0
 --- !u!1 &1095020862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10015,8 +10022,8 @@ MonoBehaviour:
     - "Este es tu nuevo traje STOMA V. \nSi\xE9ntente libre de moverte."
   dialoguePanel: {fileID: 1170253275}
   displayText: {fileID: 1095020863}
-  typingSpeed: 0.03
-  typeSound: {fileID: 8300000, guid: ea84b3fa6afb364489a2f65e40f45945, type: 3}
+  typingSpeed: 0.04
+  typeSound: {fileID: 8300000, guid: 4ae2bb35c87e004499cd87f03aed237d, type: 3}
 --- !u!82 &1170253278
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10323,12 +10330,12 @@ PrefabInstance:
     - target: {fileID: 1331072588905323490, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.45
+      value: 70.82
       objectReference: {fileID: 0}
     - target: {fileID: 1331072588905323490, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1331072588905323490, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
@@ -10358,7 +10365,7 @@ PrefabInstance:
     - target: {fileID: 1331072588905323490, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1331072588905323490, guid: 2242f00e81157004d949ed4d65e35187,
         type: 3}
@@ -11186,75 +11193,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1595476914
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 254146609}
-    m_Modifications:
-    - target: {fileID: 1917651756423216436, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_Name
-      value: jetPack
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 58.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -135.65134
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917651756423216438, guid: 93460e843a6ba324087c3fd1a6e1e53c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 93460e843a6ba324087c3fd1a6e1e53c, type: 3}
 --- !u!1001 &1619422156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11300,12 +11238,12 @@ PrefabInstance:
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.498
+      value: -37.78
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.064
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
@@ -14816,11 +14754,11 @@ MonoBehaviour:
   dialogue:
     name: DotScreen1
     sentenceList:
-    - "Muy alto \xBFeh?\nPrueba usar el JetPack."
+    - "Muy alto \xBFverdad?\nUsa el JetPack."
   dialoguePanel: {fileID: 1959574107}
   displayText: {fileID: 575800123}
   typingSpeed: 0.035
-  typeSound: {fileID: 8300000, guid: ea84b3fa6afb364489a2f65e40f45945, type: 3}
+  typeSound: {fileID: 8300000, guid: 4ae2bb35c87e004499cd87f03aed237d, type: 3}
 --- !u!82 &1959574110
 AudioSource:
   m_ObjectHideFlags: 0
