@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class KeyView : MonoBehaviour
 {
-    public GameObject playerPosition;
+    public GameObject player;
     public GameObject keyboardPosition;
 
     /*Teclas*/
@@ -21,14 +21,17 @@ public class KeyView : MonoBehaviour
     public triggerTutorial sneak;
     public triggerTutorial jump;
 
-    public bool pressKeyToMoveSides;
-    public bool pressKeyToSneak;
-    public bool pressKeyToJump;
+    private bool pressKeyToMoveSides;
+    private bool pressKeyToSneak;
+    private bool pressKeyToJump;
+    private bool pressKeyToTakeAccessory;
+    private Movement playerAccessory;
 
     private void Start()
     {
         pressKeyToMoveSides = false;
         pressKeyToSneak = false;
+         playerAccessory = player.GetComponent<Movement>();
     }
 
 
@@ -39,14 +42,14 @@ public class KeyView : MonoBehaviour
         PressKeyToMoveToTheSides();
         PressKeyToSneak();
         PressKeyToJump();
-        
+        PressKeyToTakeAccessory();
         //...
     }
 
     private void positioningKeysOnPlayer()
     {
-        float x_Keyboard = playerPosition.transform.position.x;
-        float y_Keyboard = playerPosition.transform.position.y + 1.5f;
+        float x_Keyboard = player.transform.position.x;
+        float y_Keyboard = player.transform.position.y + 1.5f;
 
         keyboardPosition.transform.position = new Vector2(x_Keyboard,y_Keyboard);
     }
@@ -131,7 +134,6 @@ public class KeyView : MonoBehaviour
              
         
     }
-
     private void PressKeyToJump()
     {
         pressKeyToJump = jump.isInside;
@@ -151,6 +153,23 @@ public class KeyView : MonoBehaviour
         {
             showActionKeys(false);
         }
+    }
+    private void PressKeyToTakeAccessory()
+    {
+        pressKeyToTakeAccessory = playerAccessory.touchingAccessory;
+
+        if(pressKeyToTakeAccessory == true)
+        {
+            showActionKeys(true);
+
+            pressThisKey(Z_key);
+            ignoreThisKey(X_key);
+        }
+        else
+        {
+            showActionKeys(false);
+        }
+
     }
 }
 
