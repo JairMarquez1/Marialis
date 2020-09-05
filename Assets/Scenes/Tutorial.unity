@@ -1552,7 +1552,7 @@ GameObject:
   - component: {fileID: 220668219}
   - component: {fileID: 220668218}
   - component: {fileID: 220668217}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10995,7 +10995,7 @@ GameObject:
   - component: {fileID: 820417278}
   - component: {fileID: 820417277}
   - component: {fileID: 820417276}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sneak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11471,7 +11471,7 @@ GameObject:
   - component: {fileID: 995551774}
   - component: {fileID: 995551773}
   - component: {fileID: 995551776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: JetPack Deploy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12946,7 +12946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1222268012}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TutorialInteraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15536,7 +15536,7 @@ GameObject:
   - component: {fileID: 1574254964}
   - component: {fileID: 1574254963}
   - component: {fileID: 1574254962}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MoveToTheSides
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16623,7 +16623,7 @@ PrefabInstance:
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.45
+      value: -24.2
       objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}

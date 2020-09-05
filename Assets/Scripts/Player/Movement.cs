@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Movement : MonoBehaviour
 {
-
+    public Transform head;
     public Transform bulletSpawner;
     public GameObject bulletPrefab;
     private GameManager gameManager;
@@ -130,12 +130,24 @@ public class Movement : MonoBehaviour
             //-------Desagacharse-------
             if (sneaking)
             {
-                speed *= 2f;
-                bulletSpawner.Translate(new Vector3(0f, 0.27f, 0f));
-                gameObject.GetComponent<Animator>().SetBool("sneaking", false);
-                GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.02f);
-                GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.9f);
-                sneaking = false;
+                RaycastHit2D hitInfo = Physics2D.Raycast(head.position, head.up);
+                //Debug.Log(hitInfo.transform.name);
+                //lineRenderer.SetPosition(0, firePoint.position);
+                //lineRenderer.SetPosition(1, hitInfo.point);
+                Debug.Log(hitInfo.collider.gameObject.name);
+                if (hitInfo.collider)
+                {
+                    if (hitInfo.point.y - head.position.y > 0.44f)
+                    {
+                        speed *= 2f;
+                        bulletSpawner.Translate(new Vector3(0f, 0.27f, 0f));
+                        gameObject.GetComponent<Animator>().SetBool("sneaking", false);
+                        GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.02f);
+                        GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.9f);
+                        sneaking = false;
+                    }
+                }
+
             }
             //-----------Salto----------
             else

@@ -190,11 +190,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Astronauta1
       objectReference: {fileID: 0}
-    - target: {fileID: 6143196629520587708, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6143196629520587709, guid: 8c8cce8a36a11cd49b3dd8f74e267958,
         type: 3}
       propertyPath: m_LocalPosition.x
