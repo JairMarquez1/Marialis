@@ -10,44 +10,19 @@ public class BulletMovement : MonoBehaviour
     private Rigidbody2D bulletRB;
     public float bulletSpeed;
     public float bulletLife;
-
     public GameObject player;
     private Transform playerTrans;
     private int direction;
+    private Animator bulletAnimation;
 
     void Awake() 
     {
         bulletRB = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerTrans = player.transform;
+        bulletAnimation = gameObject.GetComponent<Animator>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        try
-        {
-            if (!collision.gameObject.GetComponent<BoxCollider2D>().isTrigger)
-            {
-                gameObject.GetComponent<Animator>().SetBool("explode", true);
-                bulletRB.velocity = new Vector2(direction * .3f, 0);
-                bulletLife = 10f;
-            }
-        }catch (MissingComponentException)
-        {
-            Debug.Log("hola");
-             if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
-            {
-                gameObject.GetComponent<Animator>().SetBool("explode", true);
-                bulletRB.velocity = new Vector2(direction * .3f, 0);
-                bulletLife = 10f;
-            }
-        }
-    }
-
-    private void Explode()
-    {
-        Destroy(gameObject);
-    }
     void Start()
     {
         //Destroy(gameObject, bulletLife);
@@ -70,5 +45,32 @@ public class BulletMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        try
+        {
+            if (!collision.gameObject.GetComponent<BoxCollider2D>().isTrigger)
+            {
+                bulletAnimation.SetBool("explode", true);
+                bulletRB.velocity = new Vector2(direction * .3f, 0);
+                bulletLife = 10f;
+            }
+        }
+        catch (MissingComponentException)
+        {
+            if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
+            {
+                bulletAnimation.SetBool("explode", true);
+                bulletRB.velocity = new Vector2(direction * .3f, 0);
+                bulletLife = 10f;
+            }
+        }
+    }
+
+    private void Explode()
+    {
+        Destroy(gameObject);
     }
 }

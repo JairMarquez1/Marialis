@@ -12,6 +12,7 @@ TagManager:
   - accessory
   - Accessory
   - Dangerous
+  - Menu
   layers:
   - Default
   - TransparentFX

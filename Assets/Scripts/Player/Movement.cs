@@ -43,6 +43,7 @@ public class Movement : MonoBehaviour
     public int life;
 
     private Rigidbody2D rigibody2d;
+    private Animator playerAnimation;
 
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -92,14 +93,16 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        life = 5;
-    }
     private void Awake()
     {
         rigibody2d = gameObject.GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("Canvas").GetComponent<GameManager>();
+        playerAnimation = gameObject.GetComponent<Animator>();
+    }
+
+    void Start()
+    {
+        life = 5;
     }
 
     void Update()
@@ -110,7 +113,7 @@ public class Movement : MonoBehaviour
             rigibody2d.AddForce(new Vector2(-speed * Time.deltaTime, 0));
             //gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
             transform.localScale = new Vector3(1f, 1, 1);
-            gameObject.GetComponent<Animator>().SetBool("walking", true);
+            playerAnimation.SetBool("walking", true);
         }
 
         if (Input.GetKey("right"))
@@ -118,11 +121,11 @@ public class Movement : MonoBehaviour
             rigibody2d.AddForce(new Vector2(speed * Time.deltaTime, 0));
             //gameObject.transform.localRotation = Quaternion.Euler(0, 180, 0);
             transform.localScale = new Vector3(-1f, 1, 1);
-            gameObject.GetComponent<Animator>().SetBool("walking", true);
+            playerAnimation.SetBool("walking", true);
         }
         else if (!Input.GetKey("left"))
         {
-            gameObject.GetComponent<Animator>().SetBool("walking", false);
+            playerAnimation.SetBool("walking", false);
         }
         //-------------------"Desagachamiento" y Salto----------------------
         if (Input.GetKeyDown(KeyCode.UpArrow) && grounded)
@@ -141,7 +144,7 @@ public class Movement : MonoBehaviour
                     {
                         speed *= 2f;
                         bulletSpawner.Translate(new Vector3(0f, 0.27f, 0f));
-                        gameObject.GetComponent<Animator>().SetBool("sneaking", false);
+                        playerAnimation.SetBool("sneaking", false);
                         GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.02f);
                         GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.9f);
                         sneaking = false;
@@ -166,7 +169,7 @@ public class Movement : MonoBehaviour
             {
                 speed /= 2f;
                 bulletSpawner.Translate(new Vector3(0f, -0.27f, 0f));
-                gameObject.GetComponent<Animator>().SetBool("sneaking", true);
+                playerAnimation.SetBool("sneaking", true);
                 GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.25f);
                 GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.4f);
                 sneaking = true;
@@ -176,30 +179,30 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && hasJetPack && !sneaking && fuelJetpack > 0)
         {
             rigibody2d.AddForce(Vector2.up * jetPackPower, ForceMode2D.Impulse);
-            gameObject.GetComponent<Animator>().SetBool("flying", true);
+            playerAnimation.SetBool("flying", true);
             flying = true;
         }
         else
         {
-            gameObject.GetComponent<Animator>().SetBool("flying", false);
+            playerAnimation.SetBool("flying", false);
             flying = false;
         }
 
         //--------------------------Validar animación de accesorios---------------
         if (hasGun)
         {
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
-            gameObject.GetComponent<Animator>().SetBool("withgun", true);
+            playerAnimation.SetBool("withJetPack", false);
+            playerAnimation.SetBool("withgun", true);
         }
         else if (hasJetPack)
         {
-            gameObject.GetComponent<Animator>().SetBool("withgun", false);
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", true);
+            playerAnimation.SetBool("withgun", false);
+            playerAnimation.SetBool("withJetPack", true);
         }
         else
         {
-            gameObject.GetComponent<Animator>().SetBool("withgun", false);
-            gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
+            playerAnimation.SetBool("withgun", false);
+            playerAnimation.SetBool("withJetPack", false);
         }
         //------------------Periodo de inmunidad al recibir daño--------------
         if (immunized)
@@ -276,71 +279,47 @@ public class Movement : MonoBehaviour
         if (!touchingAccessory)
             coolDownAccessory += coolDownRate * Time.deltaTime; //Regenera enfriamiento para tomar un arma.
         coolDownAccessory = Mathf.Clamp(coolDownAccessory, 0, 100f);
-        /*Cada if tiene una serie de pasos
-         1. Genera el accesorio que se quita. (Prefab)
-         2. Le da genera un nombre al prefab generado.
-         3. El personaje convierte el accesorio en "falso".
-         */
+
+        /*1. Genera el accesorio que se quita. (Prefab)
+          2. Se le asigna un nombre al prefab generado.
+          3. El personaje convierte el accesorio en "falso".*/
+
         if (Input.GetKeyDown(KeyCode.Z))
         { 
+            //Dropea el antiguo accesorio si es que tenía alguno.
+
             if (hasGun /*&& coolDownAccessory == 100f*/)
             {
-                gameObject.GetComponent<Animator>().SetBool("withgun", false);
+                playerAnimation.SetBool("withgun", false);
                 GameObject gun = Instantiate(gunAccessory, transform.position, transform.rotation); //1
                 gun.name = "gun"; //2
                 hasGun = false; //3
-                Debug.Log("drop gun");
             }
             else if (hasJetPack /*&& coolDownAccessory == 100f*/)
             {
-                gameObject.GetComponent<Animator>().SetBool("withJetPack", false);
+                playerAnimation.SetBool("withJetPack", false);
                 GameObject jetPack = Instantiate(jetPackAccessory, transform.position, transform.rotation);
                 jetPack.name = "jetPack";
                 hasJetPack = false;
-                Debug.Log("drop jetpack");
             }
+
+            //Actualiza los atributos de posesión de accesorios.
             if (touchingGun)
             {
-                //Poner en "true" el accesorio que le pertenece al Script
                 hasGun = true;
-                /*Poner EL RESTO de los accesorios en false*/
                 hasJetPack = false;
-                Destroy(touching); //Simula que el personaje toma el objeto.
-                Debug.Log("pick gun");
+                Destroy(touching);
             }
             else if (touchingJetPack)
             {
                 hasJetPack = true;
                 hasGun = false;
                 Destroy(touching);
-                Debug.Log("pick jetpack");
             }
             
         }
     }
         
-
-    /*public void takeAccessories()
-    {
-        if (touchingAccessory && Input.GetKeyDown(KeyCode.Z))
-        {
-            if (touchingGun)
-            {
-                //Poner en "true" el accesorio que le pertenece al Script
-                hasGun = true;
-                //Poner EL RESTO de los accesorios en false
-                hasJetPack = false;
-                Destroy(touching); //Simula que el personaje toma el objeto.
-            }
-            else if (touchingJetPack)
-            {
-                hasJetPack = true;
-                hasGun = false;
-                Destroy(touching);
-            }
-            Debug.Log("destroy");
-        }
-    }*/
     public void set_ground(bool boolean)
     {
         grounded = boolean;
@@ -356,7 +335,7 @@ public class Movement : MonoBehaviour
             if (life < 1)
             {
                 //Time.timeScale = 0f;
-                gameObject.GetComponent<Animator>().SetBool("sneaking", true);
+                playerAnimation.SetBool("sneaking", true);
                 gameManager.GameOver = true;
                 //gameManager.RestartGame();
                 Destroy(gameObject);
