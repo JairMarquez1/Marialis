@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool GameOver = false;
-    public GameObject text;
+    public GameObject gameOverScreen;
+    public GameObject gamePausedScreen;
     private Scene scene;
     public string sceneName;
     // Start is called before the first frame update
@@ -20,20 +21,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Pause();
+
          if (Input.GetKeyDown(KeyCode.R))
-            {
-                text.SetActive(false);
-                RestartGame();
-            }
-        if (GameOver)
+            RestartGame();
+    }
+
+    public void Pause()
+    {
+        if (Time.timeScale == 1f){
+            Time.timeScale = 0f;
+            gamePausedScreen.SetActive(true);
+        }
+        else
         {
-            text.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                text.SetActive(false);
-                RestartGame();
-            }
-         }
+            Time.timeScale = 1f;
+            gamePausedScreen.SetActive(false);
+        }
     }
 
     public void RestartGame()
@@ -42,4 +47,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void GameOver()
+    {
+        gameOverScreen.SetActive(true);
+    }
+
+    public void Exit()
+    {
+       SceneManager.LoadScene("Menu");
+    }
 }

@@ -336,7 +336,7 @@ public class Movement : MonoBehaviour
             {
                 //Time.timeScale = 0f;
                 playerAnimation.SetBool("sneaking", true);
-                gameManager.GameOver = true;
+                gameManager.GameOver();
                 //gameManager.RestartGame();
                 Destroy(gameObject);
             }

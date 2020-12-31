@@ -56,6 +56,7 @@ public class PhysicsRockLaunch : MonoBehaviour
             {
                 if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
                 {
+                    gameObject.transform.rotation = Quaternion.identity;
                     rockAnimation.SetBool("explode", true);
                     rockRB.velocity = new Vector2(0, 0);
                     rockRB.gravityScale = 0;

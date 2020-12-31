@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 
 	public void StartLevel(string scene){
 		SceneManager.LoadScene(scene);
+		Time.timeScale = 1f;
 	}
 
 	public void Quit()

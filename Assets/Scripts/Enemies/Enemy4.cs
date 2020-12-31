@@ -15,6 +15,7 @@ public class Enemy4 : MonoBehaviour
     public float speed = 1f;
     public float maxVelx;
     public float velx;
+    public bool stopped;
 
     void Start()
     {
@@ -43,6 +44,10 @@ public class Enemy4 : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        else if (collision.gameObject.tag == "NotShootable")
+        {
+            stopped = true;
+        }
     }
 
     private void Movement()
@@ -58,13 +63,15 @@ public class Enemy4 : MonoBehaviour
             onVisionRadius = false;
             gameObject.GetComponent<Animator>().SetBool("shooting", false);
         }
+
         if (transform.position.x > player.transform.position.x)
         {
             transform.localScale = new Vector3(-1f, 1, 1);
             if (dist < toCloseRadius)
             {
-                transform.Translate(speed * Time.deltaTime, 0, 0);
-                //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
+                if (!stopped)
+                    transform.Translate(speed * Time.deltaTime, 0, 0);
+                    //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
             }
         }
         else
@@ -72,8 +79,9 @@ public class Enemy4 : MonoBehaviour
             transform.localScale = new Vector3(1f, 1, 1);
             if (dist < toCloseRadius)
             {
-                /*transform.Translate(-speed * Time.deltaTime, 0, 0);*/
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
+                if (!stopped)
+                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
+                    //transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
         }
         velx = rigidbody.velocity[0];
