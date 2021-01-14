@@ -146,7 +146,7 @@ public class Movement : MonoBehaviour
                         bulletSpawner.Translate(new Vector3(0f, 0.27f, 0f));
                         playerAnimation.SetBool("sneaking", false);
                         GetComponent<CapsuleCollider2D>().offset = new Vector2(0.07f, -0.02f);
-                        GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.9f);
+                        GetComponent<CapsuleCollider2D>().size = new Vector2(0.6f, 1.86f);
                         sneaking = false;
                     }
                 }

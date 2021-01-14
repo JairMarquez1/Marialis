@@ -10,10 +10,23 @@ public class Enemy_1 : MonoBehaviour
     public bool MoveRight;
     public Transform firePoint;
 
+    void Start()
+    {
+        //Se define su dirección de movimiento inicial y la rotación del firePoint.
+        if (transform.localScale.x < 0)
+        {
+            MoveRight = true;
+            firePoint.transform.Rotate(0, 0, 180);
+        }
+        else
+            MoveRight = false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player")
         {
+            //Si choca contra algo que no sea el jugador, cambia de direccion su movimiento.
             MoveRight = !MoveRight;
             firePoint.transform.Rotate(0, 0, 180);
         }
@@ -28,14 +41,6 @@ public class Enemy_1 : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        if (transform.localScale.x < 0) { 
-            MoveRight = true;
-        firePoint.transform.Rotate(0, 0, 180); }
-        else
-            MoveRight = false;
-    }
 
     void Update()
     {

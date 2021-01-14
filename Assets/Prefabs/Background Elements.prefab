@@ -47,6 +47,7 @@ SpriteShapeRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -103,6 +104,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: -2, y: 2, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -112,6 +114,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: 2, y: 2, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -121,6 +124,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
     - position: {x: 2, y: -2, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
@@ -130,6 +134,7 @@ MonoBehaviour:
       bevelSize: 0
       spriteIndex: 0
       corner: 1
+      m_CornerMode: 1
   m_SpriteShape: {fileID: 0}
   m_FillPixelPerUnit: 100
   m_StretchTiling: 1
@@ -144,6 +149,8 @@ MonoBehaviour:
   m_OptimizeCollider: 1
   m_OptimizeGeometry: 1
   m_EnableTangents: 0
+  m_GeometryCached: 0
+  m_UTess2D: 0
 --- !u!1 &3095430122055501055
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +198,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -239,10 +247,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 5079229017030525634, guid: daca81d3467e58846b45f0486d579fa1, type: 3}
-  speedX: -0.25
-  speedY: 0
-  ejeX: 1
-  ejeY: 0
   parallaxEffectMultiplier: {x: 0.7, y: 0}
 --- !u!1 &3095430122057639366
 GameObject:
@@ -291,6 +295,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -339,10 +344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 5079229017030525634, guid: daca81d3467e58846b45f0486d579fa1, type: 3}
-  speedX: -0.05
-  speedY: 0
-  ejeX: 1
-  ejeY: 0
   parallaxEffectMultiplier: {x: 0.9, y: 0}
 --- !u!1 &3095430122342623569
 GameObject:
@@ -425,6 +426,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -508,6 +510,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -555,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6d41fa54020bc49ac54f1a42dffb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedRotation: 0.1
+  speedRotation: 0.01
   generalLight: {fileID: 6969156171911746511, guid: 43d20f6b963c14544a4b7b89b7d4ce46,
     type: 3}
   dayTime: 8
@@ -572,8 +575,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   follow: {fileID: 5079229017030525634, guid: daca81d3467e58846b45f0486d579fa1, type: 3}
-  speedX: -0.01
-  speedY: 0
-  ejeX: 1
-  ejeY: 0
   parallaxEffectMultiplier: {x: 1, y: 0}

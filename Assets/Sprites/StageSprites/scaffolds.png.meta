@@ -1,0 +1,1052 @@
+fileFormatVersion: 2
+guid: a17adfa09c356d44dba8d84a702f9fb9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7049416008765715993
+    second: scaffolds_0
+  - first:
+      213: 4770360498442650160
+    second: scaffolds_1
+  - first:
+      213: -9068187036169535587
+    second: scaffolds_2
+  - first:
+      213: 655491796481368464
+    second: scaffolds_3
+  - first:
+      213: -354324688534147062
+    second: scaffolds_4
+  - first:
+      213: 3137580385662331709
+    second: scaffolds_5
+  - first:
+      213: 3656313406133541517
+    second: scaffolds_6
+  - first:
+      213: 1410431028234891832
+    second: scaffolds_7
+  - first:
+      213: 9199935109324072580
+    second: scaffolds_8
+  - first:
+      213: 4471775543998571433
+    second: scaffolds_9
+  - first:
+      213: -2883154067833384670
+    second: scaffolds_10
+  - first:
+      213: -5100238511821513937
+    second: scaffolds_11
+  - first:
+      213: 7679898568769623573
+    second: scaffolds_12
+  - first:
+      213: 8394081475911914224
+    second: scaffolds_13
+  - first:
+      213: 5466793102895702246
+    second: scaffolds_14
+  - first:
+      213: -7892530342195397616
+    second: scaffolds_15
+  - first:
+      213: 7761457206388457749
+    second: scaffolds_16
+  - first:
+      213: -2228760427339234778
+    second: scaffolds_17
+  - first:
+      213: 5276471456433167355
+    second: scaffolds_18
+  - first:
+      213: 8222353428010562944
+    second: scaffolds_19
+  - first:
+      213: 7208399466086875796
+    second: scaffolds_20
+  - first:
+      213: 9134113395175299987
+    second: scaffolds_21
+  - first:
+      213: 8190131338442854996
+    second: scaffolds_22
+  - first:
+      213: 2339916597046471129
+    second: scaffolds_23
+  - first:
+      213: -7480080806399991485
+    second: scaffolds_24
+  - first:
+      213: 5834727975326171096
+    second: scaffolds_25
+  - first:
+      213: 5271248252410383806
+    second: scaffolds_26
+  - first:
+      213: -867664198329322203
+    second: scaffolds_27
+  - first:
+      213: -8537984287602679667
+    second: scaffolds_28
+  - first:
+      213: 5031871944334079244
+    second: scaffolds_29
+  - first:
+      213: -910387035606044725
+    second: scaffolds_30
+  - first:
+      213: 7742968150280175711
+    second: scaffolds_31
+  - first:
+      213: -2273391597197895790
+    second: scaffolds_32
+  - first:
+      213: -5765025728699609451
+    second: scaffolds_33
+  - first:
+      213: -7463779041768695293
+    second: scaffolds_34
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 20
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: scaffolds_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916be64b28e84d160800000000000000
+      internalID: 7049416008765715993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032ca305999b33240800000000000000
+      internalID: 4770360498442650160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fff489fe3572280800000000000000
+      internalID: -9068187036169535587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0916472e056c81900800000000000000
+      internalID: 655491796481368464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0075c4b29f251bf0800000000000000
+      internalID: -354324688534147062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3be2a5bcbcea8b20800000000000000
+      internalID: 3137580385662331709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_6
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 84
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8a9610cba5ddb230800000000000000
+      internalID: 3656313406133541517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83231222c8bd29310800000000000000
+      internalID: 1410431028234891832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 486e7e31d3cbcaf70800000000000000
+      internalID: 9199935109324072580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_9
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3605f2a20fe0e30800000000000000
+      internalID: 4471775543998571433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_10
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2219112a6aafcf7d0800000000000000
+      internalID: -2883154067833384670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b9c1188105839b0800000000000000
+      internalID: -5100238511821513937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5165b86fe0b749a60800000000000000
+      internalID: 7679898568769623573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_13
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 63
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f29a6be0a4cd7470800000000000000
+      internalID: 8394081475911914224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 0.5}
+        - {x: -10, y: -5.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e067aedc53fddb40800000000000000
+      internalID: 5466793102895702246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c737e5879187290800000000000000
+      internalID: -7892530342195397616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_16
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5110e2e053c36bb60800000000000000
+      internalID: 7761457206388457749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_17
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6224ff6233ad111e0800000000000000
+      internalID: -2228760427339234778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_18
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfbdf2c65dac93940800000000000000
+      internalID: 5276471456433167355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_19
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085f84ef0eaab1270800000000000000
+      internalID: 8222353428010562944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_20
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 42
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49249376f11690460800000000000000
+      internalID: 7208399466086875796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b9f810db3e2ce70800000000000000
+      internalID: 9134113395175299987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_22
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4525ea32f0139a170800000000000000
+      internalID: 8190131338442854996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_23
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9eef26fbd097020800000000000000
+      internalID: 2339916597046471129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_24
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341af43432a613890800000000000000
+      internalID: -7480080806399991485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfb95a0e2e19f050800000000000000
+      internalID: 5834727975326171096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_26
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebdc1d77b5c372940800000000000000
+      internalID: 5271248252410383806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_27
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 21
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525b14a320075f3f0800000000000000
+      internalID: -867664198329322203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80639fc68cf28980800000000000000
+      internalID: -8537984287602679667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_29
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -9.508773}
+        - {x: 10, y: -9.535893}
+        - {x: 10, y: 0.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0579459fdcc4d540800000000000000
+      internalID: 5031871944334079244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_30
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -9.528309}
+        - {x: 10, y: -9.541914}
+        - {x: -10, y: 0.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfa49680d7ad53f0800000000000000
+      internalID: -910387035606044725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_31
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f500d98328c847b60800000000000000
+      internalID: 7742968150280175711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_32
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29759a5236a4370e0800000000000000
+      internalID: -2273391597197895790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_33
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -5.5}
+        - {x: 10, y: -5.5}
+        - {x: 10, y: 0.5392151}
+        - {x: -10, y: 0.5392151}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e4fd7e4a38effa0800000000000000
+      internalID: -5765025728699609451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scaffolds_34
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 20
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: 10.5}
+        - {x: -10, y: 4.5}
+        - {x: 10, y: 4.5}
+        - {x: 10, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a1f5d91845b6890800000000000000
+      internalID: -7463779041768695293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

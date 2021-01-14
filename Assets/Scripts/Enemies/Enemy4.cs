@@ -30,7 +30,7 @@ public class Enemy4 : MonoBehaviour
 
     void LaunchProjectile()
     {
-            Instantiate(projectile, new Vector2(transform.position.x,transform.position.y+3), transform.rotation);
+            Instantiate(projectile, new Vector2(transform.position.x,transform.position.y+1), transform.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +52,7 @@ public class Enemy4 : MonoBehaviour
 
     private void Movement()
     {
+        //Disparo
         float dist = Vector3.Distance(player.transform.position, transform.position);
         if (dist < visionRadius)
         {
@@ -63,29 +64,24 @@ public class Enemy4 : MonoBehaviour
             onVisionRadius = false;
             gameObject.GetComponent<Animator>().SetBool("shooting", false);
         }
-
-        if (transform.position.x > player.transform.position.x)
+        //Movimiento
+        if (!stopped && dist < toCloseRadius)
         {
-            transform.localScale = new Vector3(-1f, 1, 1);
-            if (dist < toCloseRadius)
+            if (transform.position.x > player.transform.position.x)
             {
-                if (!stopped)
-                    transform.Translate(speed * Time.deltaTime, 0, 0);
-                    //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
+                transform.localScale = new Vector3(-1f, 1, 1);
+                transform.Translate(speed * Time.deltaTime, 0, 0);
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
             }
-        }
-        else
-        {
-            transform.localScale = new Vector3(1f, 1, 1);
-            if (dist < toCloseRadius)
+            else
             {
-                if (!stopped)
-                    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
-                    //transform.Translate(-speed * Time.deltaTime, 0, 0);
+                transform.localScale = new Vector3(1f, 1, 1);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
+                //transform.Translate(-speed * Time.deltaTime, 0, 0);
             }
+            velx = rigidbody.velocity[0];
+            rigidbody.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), 0f);
         }
-        velx = rigidbody.velocity[0];
-        rigidbody.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), 0f);
     }
 
     private void OnDrawGizmos()
