@@ -60,12 +60,16 @@ public class BulletMovement : MonoBehaviour
         }
         catch (MissingComponentException)
         {
-            if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
+            try
             {
-                bulletAnimation.SetBool("explode", true);
-                bulletRB.velocity = new Vector2(direction * .3f, 0);
-                bulletLife = 10f;
+                if (!collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger)
+                {
+                    bulletAnimation.SetBool("explode", true);
+                    bulletRB.velocity = new Vector2(direction * .3f, 0);
+                    bulletLife = 10f;
+                }
             }
+            catch (MissingComponentException) {; }
         }
     }
 

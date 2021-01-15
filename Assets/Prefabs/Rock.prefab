@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -98,9 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.3523188}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.79231876
+  m_Radius: 0.4
 --- !u!50 &3144533121462725024
 Rigidbody2D:
   serializedVersion: 4
@@ -114,10 +115,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.19
-  m_LinearDrag: 1.62
-  m_AngularDrag: 0.05
-  m_GravityScale: 1.67
-  m_Material: {fileID: 0}
+  m_LinearDrag: 2
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: b75d68a369cc4e44da82e8b7c9759c5d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -134,11 +135,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f1574f15bf3bd45a09f473bdeceaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceX: 1
-  forceY: 10
+  forceX: 0.6
+  forceY: 7
   rockLife: 1.2
   distance: 0
-  aux: 0.55
+  distanceY: 0
+  randomDifx: 0.2
+  randomDify: 1
+  aux: 0.5
 --- !u!95 &3337955577249041307
 Animator:
   serializedVersion: 3
@@ -150,8 +154,8 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c6da3abccec649c4cbf903c3395d5edb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
+  m_CullingMode: 1
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

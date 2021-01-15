@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     private bool immunized = false;
     //Atributos
     public float jumpPower = 8f;
-    public float jetPackPower = 01.45f;
+    public float jetPackPower = 1.45f;
     public float speed = 500f;
     public float maxVelx = 10f;
     public float maxVely = 10f;
@@ -45,11 +45,6 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rigibody2d;
     private Animator playerAnimation;
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Gear")
-            scoreGear++;
-    }*/
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Accessory")
@@ -72,11 +67,8 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Gear")
         {
             collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            Debug.Log("1");
             scoreGear++;
-            Debug.Log("2");
         }
-        /*Tomar accesorios al tocarlos*/
         if (collision.gameObject.tag == "Dangerous")
             damage(1);
     }
@@ -134,10 +126,9 @@ public class Movement : MonoBehaviour
             if (sneaking)
             {
                 RaycastHit2D hitInfo = Physics2D.Raycast(head.position, head.up);
-                //Debug.Log(hitInfo.transform.name);
                 //lineRenderer.SetPosition(0, firePoint.position);
                 //lineRenderer.SetPosition(1, hitInfo.point);
-                Debug.Log(hitInfo.collider.gameObject.name);
+                //Debug.Log(hitInfo.collider.gameObject.name);
                 if (hitInfo.collider)
                 {
                     if (hitInfo.point.y - head.position.y > 0.44f)

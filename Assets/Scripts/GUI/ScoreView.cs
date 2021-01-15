@@ -3,21 +3,29 @@ using UnityEngine.UI;
 
 public class ScoreView : MonoBehaviour
 {
+    private Movement scriptMovement;
+
     public Text gearText;
     public Text lifeText;
-    private Movement script;
+    public Text timeText;
     public Image life;
+    public float time = 0f;
+
     // Start is called before the first frame update
     void Awake()
     {
-        script = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
+        scriptMovement= GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        gearText.text = script.scoreGear.ToString();
-        lifeText.text = Mathf.Clamp(script.life, 0, 100).ToString();
-        life.rectTransform.sizeDelta = new Vector2(script.life * 45f, 40);
+        gearText.text = scriptMovement.scoreGear.ToString();
+        lifeText.text = Mathf.Clamp(scriptMovement.life, 0, 100).ToString();
+        life.rectTransform.sizeDelta = new Vector2(scriptMovement.life * 45f, 40);
+        time += Time.deltaTime;
+        timeText.text = time.ToString("F2");
     }
+
+
 }

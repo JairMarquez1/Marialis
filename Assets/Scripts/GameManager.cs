@@ -9,13 +9,11 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameOverScreen;
     public GameObject gamePausedScreen;
-    private Scene scene;
     public string sceneName;
     // Start is called before the first frame update
     void Start()
     {
-        scene = SceneManager.GetActiveScene();
-        sceneName = scene.name;
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame

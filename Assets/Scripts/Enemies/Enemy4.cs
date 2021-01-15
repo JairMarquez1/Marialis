@@ -10,11 +10,10 @@ public class Enemy4 : MonoBehaviour
     private Rigidbody2D rigidbody;
     public float visionRadius;
     public float toCloseRadius;
+    public string direccion;
     public bool onVisionRadius = false;
     public float health = 3f;
     public float speed = 1f;
-    public float maxVelx;
-    public float velx;
     public bool stopped;
 
     void Start()
@@ -44,16 +43,15 @@ public class Enemy4 : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if (collision.gameObject.tag == "NotShootable")
-        {
+        else if (collision.gameObject.tag == "NotShootable" || collision.gameObject.tag == "Player")
             stopped = true;
-        }
     }
 
     private void Movement()
     {
         //Disparo
         float dist = Vector3.Distance(player.transform.position, transform.position);
+        //Campo de vision
         if (dist < visionRadius)
         {
             gameObject.GetComponent<Animator>().SetBool("shooting", true);
@@ -61,26 +59,33 @@ public class Enemy4 : MonoBehaviour
         }
         else
         {
-            onVisionRadius = false;
             gameObject.GetComponent<Animator>().SetBool("shooting", false);
+            onVisionRadius = false;
+        }
+        //Direccion de movimiento
+        if (transform.position.x > player.transform.position.x)
+        {
+            if (direccion != "Izq") stopped = false;
+            direccion = "Izq";
+            transform.localScale = new Vector3(-1f, 1, 1); 
+        }
+        else
+        {
+            if (direccion != "Der") stopped = false;
+            direccion = "Der";
+            transform.localScale = new Vector3(1f, 1, 1);
         }
         //Movimiento
         if (!stopped && dist < toCloseRadius)
         {
-            if (transform.position.x > player.transform.position.x)
-            {
-                transform.localScale = new Vector3(-1f, 1, 1);
+            //Izquierda
+            if (direccion == "Izq")
                 transform.Translate(speed * Time.deltaTime, 0, 0);
                 //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed, 0f));  
-            }
+            //Derecha
             else
-            {
-                transform.localScale = new Vector3(1f, 1, 1);
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
-                //transform.Translate(-speed * Time.deltaTime, 0, 0);
-            }
-            velx = rigidbody.velocity[0];
-            rigidbody.velocity = new Vector2(Mathf.Clamp(velx, -maxVelx, maxVelx), 0f);
+                transform.Translate(-speed * Time.deltaTime, 0, 0);
+                //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed, 0f));
         }
     }
 
